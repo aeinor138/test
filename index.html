@@ -23,11 +23,40 @@
 </head>
 <body>
 Example Sign-Up Form
-
+<script language="javascript" type="text/javascript">
+    window.addEventListener('load', function () {
+        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+        var string_length = 8;
+        var randomstring = '';
+        for (var i=0; i<string_length; i++) {
+            var rnum = Math.floor(Math.random() * chars.length);
+            randomstring += chars.substring(rnum,rnum+1);
+        }
+        document.captureForm.referenceField.value = randomstring;
+    })
+</script> 
+    
+    <script>
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://scripts.consentric.io/capture-widget.min.js';
+        (d.head || d.body).appendChild(s);
+    })();    window.addEventListener('load', function () {
+        ConsentricCaptureWidget.load({
+            templateId: 'ckLSZ4UNaMS>',
+            formSelector: '#captureForm',
+            referenceSelector: '#referenceField',
+            containerSelector: '#capture-widget-container'
+        });
+    });
+</script>
 <form id="captureForm" name="captureForm">
     <input id="a text entry field" />
+    <br>
+    <input id="referenceField" name="referenceField" />
+    <div id="capture-widget-container"></div>
     <input type="submit" value="Submit">
-</form>
+</form> 
 
 </body>
 </html> 

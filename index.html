@@ -42,33 +42,13 @@
 </head>
 
 <body>
-<div class="py-5 text-center">
-    <h2>Account sign up</h2>
-    <p class="lead">Sign up to your new account</p>
-</div>
-
-<div class="container">
-    <form id="captureForm" name="captureForm">
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="John" required>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="Smith" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label for="referenceField">Customer Reference (Generated)</label>
-                <input type="text" readonly class="form-control" id="referenceField" name="referenceField"/>
-            </div>
-        </div>
-        <div class="col-md-12" id="capture-widget-container"></div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
-    </form>
-</div>
+<form id="captureForm" name="captureForm">
+    <input id="email_entry" />
+    <br>
+    <input id="referenceField" name="referenceField" />
+    <div id="capture-widget-container"></div>
+    <input type="submit" value="Submit">
+</form> 
 
 </body>
 </html>

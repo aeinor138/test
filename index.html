@@ -30,5 +30,29 @@
     
     <div id="capture-widget-container"></div>
 
+    
+     <h1>An Example Website..</h1>
+        <main class="data-form">
+            <form id="main-form">
+                ...
+                <div id="mld-prog-widg"></div>
+                <button id="register">Register</button>
+            </form>
+        </main>
+        <script src="https://scripts.sandbox.consentric.io/capture-point.min.js"></script>
+            <script>
+                      StatelessWidget.load({
+                                id: 'mld-prog-widg',
+                                uniqueReference: 'citizen-ref-001',
+                                templateId: 'ckLSZ4UNaMS',
+                    display: { ... },
+                    actions: {
+                        submit: {
+                            elem: document.getElementById('register'),
+                            event: 'click',
+                        },
+                    },
+                        });
+        </script>
 </body>
 </html>

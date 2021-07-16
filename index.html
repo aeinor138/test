@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     
+  
     <script>
+        
+          var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+        var string_length = 8;
+        var randomstring = '';
+        for (var i=0; i<string_length; i++) {
+            var rnum = Math.floor(Math.random() * chars.length);
+            randomstring += chars.substring(rnum,rnum+1);
+        }
+        
   window.addEventListener('load', function() {
     StatelessWidget.load({
-      id: 'capture-widget-container',
+       id: 'capture-widget-container',
       templateId: 'ckLSZ4UNaMS',
-    //  token: token
+      uniqueReference: randomstring
       //ruleId: '< RULE ID >',
       //channel: '< CHANNEL >',
-      //campaign: '< CAMPAIGN >'
     });
   });
 </script>
@@ -30,26 +39,14 @@
     
      
 <form id="captureForm" name="captureForm">
-    <input id="a text entry field" />
+   Email: <input id="a text entry field" />
     <br>
     <input id="referenceField" name="referenceField" />
     <div id="capture-widget-container"></div>
     <input type="submit" value="Submit">
 </form> 
     
-    <div id="widget-container"></div>
-        <script async>
-            var widget_config = {
-                templateId: "PCKA3X58oR6",
-                // widgetId: '',
-            };
-            (function() {
-                var d = document, s = d.createElement('script');
-                s.src = 'https://widget.sandbox.consentric.io/public/init.js';
-                s.id = 'init';
-                (d.head || d.body).appendChild(s);
-            })();
-        </script>
+    
 
 </body>
 </html>

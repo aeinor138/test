@@ -1,37 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<script language="javascript" type="text/javascript">
-    window.addEventListener('load', function () {
-        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-        var string_length = 8;
-        var randomstring = '';
-        for (var i = 0; i < string_length; i++) {
-            var rnum = Math.floor(Math.random() * chars.length);
-            randomstring += chars.substring(rnum, rnum + 1);
-        }
-        document.captureForm.referenceField.value = randomstring;
-    })
-</script>
-
-<script>
-   (function () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://scripts.sandbox.consentric.io/capture-point.min.js';
-      
-
-        (d.head || d.body).appendChild(s);
-    })();
-
-    window.addEventListener('load', function () {
-        ConsentricCaptureWidget.load({
-            templateId: 'PCKA3X58oR6',
-            formSelector: '#captureForm',
-            referenceSelector: '#referenceField',
-            containerSelector: '#capture-widget-container'
-        });
+    
+    <script>
+  window.addEventListener('load', function() {
+    StatefulWidget.load({
+      id: 'capture-widget-container',
+      templateId: 'PCKA3X58oR6',
+      token: token
+      //ruleId: '< RULE ID >',
+      //channel: '< CHANNEL >',
+      //campaign: '< CAMPAIGN >'
     });
+  });
 </script>
+<script src="https://scripts.sandbox.consentric.io/capture-point.min.js"></script>
 
 
 <head>

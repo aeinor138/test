@@ -11,7 +11,7 @@
             var rnum = Math.floor(Math.random() * chars.length);
             randomstring += chars.substring(rnum,rnum+1);
         }
-        document.captureForm.uniqID.value = randomstring;
+        document.captureForm.referenceField.value = randomstring;
   window.addEventListener('load', function() {
     StatelessWidget.load({
        id: 'capture-widget-container',

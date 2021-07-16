@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     
-  
-    <script>
+   
+  <script language="javascript" type="text/javascript">
+      
           var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
         var string_length = 8;
         var randomstring = '';
@@ -10,14 +11,12 @@
             var rnum = Math.floor(Math.random() * chars.length);
             randomstring += chars.substring(rnum,rnum+1);
         }
-        
-  <script language="javascript" type="text/javascript">
+       
     window.addEventListener('load', function () {
       
         document.captureForm.referenceField.value = randomstring;
     })
-</script> 
-    
+ 
   window.addEventListener('load', function() {
     StatelessWidget.load({
        id: 'capture-widget-container',

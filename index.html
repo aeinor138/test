@@ -11,7 +11,7 @@
             var rnum = Math.floor(Math.random() * chars.length);
             randomstring += chars.substring(rnum,rnum+1);
         }
-        
+        document.captureForm.uniqID.value = randomstring;
   window.addEventListener('load', function() {
     StatelessWidget.load({
        id: 'capture-widget-container',
@@ -43,6 +43,7 @@
     <br>
     <input id="referenceField" name="referenceField" />
     <div id="capture-widget-container"></div>
+    <input id="uniqID"   />
     <input type="submit" value="Submit">
 </form> 
     

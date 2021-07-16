@@ -11,7 +11,7 @@
             var rnum = Math.floor(Math.random() * chars.length);
             randomstring += chars.substring(rnum,rnum+1);
         }
-        document.captureForm.referenceField.value = randomstring;
+    
   window.addEventListener('load', function() {
     StatelessWidget.load({
        id: 'capture-widget-container',
@@ -48,6 +48,8 @@
 </form> 
     
     
-
+<script>
+        document.captureForm.referenceField.value = randomstring;
+    <script>
 </body>
 </html>

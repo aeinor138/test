@@ -2,57 +2,19 @@
 <html lang="en">
     
    
-  <script language="javascript" type="text/javascript">
-      
-          var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-        var string_length = 8;
-        var randomstring = '';
-        for (var i=0; i<string_length; i++) {
-            var rnum = Math.floor(Math.random() * chars.length);
-            randomstring += chars.substring(rnum,rnum+1);
-        }
-       
-    window.addEventListener('load', function () {
-      
-        document.captureForm.referenceField.value = randomstring;
-    })
- 
-  window.addEventListener('load', function() {
-    StatelessWidget.load({
-       id: 'capture-widget-container',
-      templateId: 'ckLSZ4UNaMS',
-      uniqueReference: randomstring
-      //ruleId: '< RULE ID >',
-      //channel: '< CHANNEL >',
-    });
-  });
-</script>
-<script src="https://scripts.sandbox.consentric.io/capture-point.min.js"></script>
+  
 
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Example Sign-Up Form</title>
+    <title>Example CMP</title>
  
 </head>
 
 <body>
     
-    <h2>Enter your email </h2>
- 
-    
-     
-<form id="captureForm" name="captureForm">
-   Email: <input id="a text entry field" />
-    <br>
-    <input id="referenceField" name="referenceField" />
-    <div id="capture-widget-container"></div>
- 
-    <input type="submit" value="Submit">
-</form> 
-  
-    
-    <a href="https://www.iubenda.com/privacy-policy/11354842" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    <h2>CMp login test page</h2>
+<img src="https://app.usercentrics.eu/browser-ui/preview/preview.7fa9eefa.svg" alt="preview"/><script id="usercentrics-cmp" src="./bundle.js" data-settings-id="fDU1kq9HV" async></script>
 </body>
 </html>

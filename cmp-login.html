@@ -52,7 +52,14 @@
     
  <script id="AAAAusercentrics-cmp" src="AAAAhttps://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="f0n6WtiZX" async></script>-->
     
-     <script id="usercentrics-cmp" data-settings-id="f0n6WtiZX" async></script>
+     <script>
+    var newScript = document.createElement("script");
+newScript.src = "https://app.usercentrics.eu/browser-ui/latest/loader.js";
+newScript.data-settings-id = 'f0n6WtiZX';
+newScript.id = "usercentrics-cmp";
+newScript.async = true
+target.appendChild(newScript);
+    </script>
     
 </head>
 

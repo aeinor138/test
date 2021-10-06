@@ -1,95 +1,10 @@
 
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="A.css,,_bootstrap.min.css+css,,_owl.carousel.min.css+css,,_owl.theme.default.min.css+css,,_jquery.fancybox.min.css+fonts,,_icomoon,,_style.css+fonts,,_flaticon,,_font,,_flaticon.css+css,,_aos.css+css,,_style.css,Mcc.9k1u7G3REs.css.pagespeed.cf.judSQiHj_d.css" />
-<title>Space Free HTML Template by Colorlib</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+
+
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-<div class="site-mobile-menu site-navbar-target">
-<div class="site-mobile-menu-header">
-<div class="site-mobile-menu-close">
-<span class="icofont-close js-menu-toggle"></span>
-</div>
-</div>
-<div class="site-mobile-menu-body"></div>
-</div>
-<nav class="site-nav dark mb-5 site-navbar-target">
-<div class="container">
-<div class="site-navigation">
-<a href="index.html" class="logo m-0">Space<span class="text-primary">.</span></a>
-<ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right site-nav-wrap">
-<li><a href="#home-section" class="nav-link active">Home</a></li>
-<li><a href="#portfolio-section" class="nav-link">Portfolio</a></li>
-<li><a href="#services-section" class="nav-link">Services</a></li>
-<li class="has-children">
-<a href="#about-section" class="nav-link">About</a>
-<ul class="dropdown">
-<li><a href="elements.html" class="nav-link">Elements</a></li>
-<li class="has-children">
-<a href="#">Menu Two</a>
-<ul class="dropdown">
-<li><a href="#" class="nav-link">Sub Menu One</a></li>
-<li><a href="#" class="nav-link">Sub Menu Two</a></li>
-<li><a href="#" class="nav-link">Sub Menu Three</a></li>
-</ul>
-</li>
-<li><a href="#" class="nav-link">Menu Three</a></li>
-</ul>
-</li>
-<li><a href="#contact-section" class="nav-link">Contact us</a></li>
-</ul>
-<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-inline-block" data-toggle="collapse" data-target="#main-navbar">
-<span></span>
-</a>
-</div>
-</div>
-</nav>sdf
-<div class="untree_co-section pb-0" id="home-section">
-<div class="container">
-<h1 class="heading gsap-reveal-hero mb-0">Hey! I'm <strong>Space<span class="text-primary">.</span></strong></h1>
-<h2 class="subheading gsap-reveal-hero mb-4">
-A minimal, clean, and AJAX driven free portfolio template created by the fine folks at <strong>Colorlib</strong>.
-</h2>
-<p class="gsap-reveal-hero"><a href="https://Colorlib.com/" target="_blank" class="btn btn-black">More free templates here</a></p>
-</div>
-</div>
-<div class="untree_co-section untree_co-section-4 pb-0" id="portfolio-section">
-<div class="container">
 
-<div class="relative"><div class="loader-portfolio-wrap"><div class="loader-portfolio"></div></div> </div>
-<div id="portfolio-single-holder"></div>
-<div class="portfolio-wrapper">
-<div id="posts" class="row">
-<div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-<a href="portfolio-single-1.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
-<div class="overlay">
-<span class="wrap-icon icon-link2"></span>
-<div class="portfolio-item-content">
-<h3>Project Number 1</h3>
-<p>web, branding</p>
-</div>
-</div>
-<img src="images/ximg_1.jpg.pagespeed.ic.aGuqAhaMFQ.webp" class="lazyload  img-fluid" alt="Images" />
-</a>
-</div>
-<div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-<a href="portfolio-single-2.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
-<div class="overlay">
-<span class="wrap-icon icon-link2"></span>
-<div class="portfolio-item-content">
-<h3>Project Number 2</h3>
-<p>illustration, application</p>
-</div>
-</div>
-<img src="images/ximg_2.jpg.pagespeed.ic.z7W5q2olZc.webp" class="lazyload  img-fluid" alt="Images" />
-</a>
-</div>
+<body> <div id="root"></div> <script src="index.3b1a0f14.js" type="text/javascript"></script> 
 
- </body>
-</html>
+</body></html>

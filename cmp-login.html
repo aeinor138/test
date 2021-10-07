@@ -42,34 +42,6 @@
   <script type="text/javascript" src="//y7z0nvmwlj.kameleoon.eu/kameleoon.js" async="true"></script> 
 
 <script>
-	var newScript = document.createElement("script");
-newScript.src = "https://cmp-login.herokuapp.com/bundle.js";
-newScript.setAttribute("data-settings-id", "f0n6WtiZX");
-newScript.id = "usercentrics-cmp";
-newScript.async = true
-document.head.appendChild(newScript);
-                          
-                          
- window.addEventListener('UC_UI_CMP_EVENT', function (data) {
-    // console.log("TEST: source =>", data.detail.source);
-   //  console.log("TEST: type =>", data.detail.type);
-    // console.log("TEST: Variant =>", 'customUI');
-     //These are our custom events for each basic action
-     //in our Consent Management Platform
- 
-    if (data.detail.type === "ACCEPT_ALL") Kameleoon.API.Goals.processConversion(242287);
-     if (data.detail.type === "DENY_ALL") Kameleoon.API.Goals.processConversion(242404);
-     if (data.detail.type === "SAVE") Kameleoon.API.Goals.processConversion(242406);
-   	 if (data.detail.type === "CMP_SHOWN") Kameleoon.API.Goals.processConversion(243346);
-	if (data.detail.type === "CMP_CLOSED") Kameleoon.API.Goals.processConversion(243347);
-	if (data.detail.type === "LOG_IN_CLICKED") Kameleoon.API.Goals.processConversion(243345);
-	if (data.detail.type === "CONTROLLERID_RESTORED") Kameleoon.API.Goals.processConversion(243348);
-	if (data.detail.type === "MAYBE_LATER_CLICKED") Kameleoon.API.Goals.processConversion(243349);
-	if (data.detail.type === "GOOGLE_SIGN_IN_CLICKED") Kameleoon.API.Goals.processConversion(243350);
-	if (data.detail.type === "APPLE_SIGN_IN_CLICKED") Kameleoon.API.Goals.processConversion(243351);
-	if (data.detail.type === "SIGNED_IN_WITH_GOOGLE") Kameleoon.API.Goals.processConversion(243352);
-	if (data.detail.type === "SIGNED_IN_WITH_APPLE") Kameleoon.API.Goals.processConversion(243353);
- });
 
 	</script>
     <meta charset="UTF-8">

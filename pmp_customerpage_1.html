@@ -15,11 +15,11 @@
     <button onclick="callApi()"> Genereate token </button>
     <p id="demo"></p>
     
-    link to PreferenceApp for User1 - <a id=pmplink src="">here</a>
+    link to <!--    PreferenceApp for User1 - <a id=pmplink src="">here</a> -->
 </body>
 <script>
     function callApi() {
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=USER_ID_OR_EMAIL&customerId=YOUR_CUSTOMER_EMAIL", {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=Test_PMP_User1&customerId=alexey.einor@usercentrics.com", {
             "headers": {
                 "accept": "*/*",
                 "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
@@ -39,7 +39,7 @@
             "credentials": "include"
         }).then(r => r.json()).then(r => {
             document.getElementById("demo").innerHTML = r.token;
-            document.getElementById("pmplink").src = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets=2aab050c-ba4f-4df6-8450-fe313192b76b,0c49052e-17bb-49b0-83bd-275bbf70bfd7&token="+r.token+"";
+           // document.getElementById("pmplink").src = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets=2aab050c-ba4f-4df6-8450-fe313192b76b,0c49052e-17bb-49b0-83bd-275bbf70bfd7&token="+r.token+"";
         });
     }
 </script>

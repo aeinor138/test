@@ -15,7 +15,7 @@
     <button onclick="callApi()"> Genereate token </button>
     <p id="demo"></p>
     
-    link to <!--    PreferenceApp for User1 - <a id=pmplink src="">here</a> -->
+    link to      PreferenceApp for User1 - <a id=pmplink href="">here</a>  
 </body>
 <script>
     function callApi() {
@@ -39,7 +39,7 @@
             "credentials": "include"
         }).then(r => r.json()).then(r => {
             document.getElementById("demo").innerHTML = r.token;
-           // document.getElementById("pmplink").src = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets=2aab050c-ba4f-4df6-8450-fe313192b76b,0c49052e-17bb-49b0-83bd-275bbf70bfd7&token="+r.token+"";
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets=2aab050c-ba4f-4df6-8450-fe313192b76b,0c49052e-17bb-49b0-83bd-275bbf70bfd7&token="+r.token+"";
         });
     }
 </script>

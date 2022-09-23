@@ -23,7 +23,8 @@
     <p align=center><img src=account_page.png></p>
 </body>
 <script>
-    const UserID = urlParams.get('UserID')
+    //const UserID = urlParams.get('UserID')
+    var UserID = location.href.split("UserID")[1]
     function callApi() {
         fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=Test_PMP_User1@domain.com&customerId=alexey.einor@usercentrics.com", {
             "headers": {

@@ -14,8 +14,7 @@
     Customer: alexey.einor@usercentrics.com<p>
     Private API key: 3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19
     <b><p id="custom_header"><p></b>
-    
-    
+      
     <button onclick="callApi()"> Genereate token... </button>
     <p id="demo"></p>
     
@@ -26,6 +25,10 @@
     //const UserID = urlParams.get('UserID')
    // var UserID = location.href.split("UserID")[1]
 
+                const params = new URLSearchParams(window. location. search)
+                var UserID = params. get('UserID')
+                 document.getElementById("custom_header").innerHTML = "UserID: "+ UserID;
+                 document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
 
     function callApi() {
         fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=Test_PMP_User1@domain.com&customerId=alexey.einor@usercentrics.com", {
@@ -51,10 +54,6 @@
            document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets=2aab050c-ba4f-4df6-8450-fe313192b76b,0c49052e-17bb-49b0-83bd-275bbf70bfd7&token="+r.token+"";
              document.getElementById("pmplink").innerHTML = "ready!";
             
-                const params = new URLSearchParams(window. location. search)
-                var UserID = params. get('UserID')
-                 document.getElementById("custom_header").innerHTML = "UserID: "+ UserID;
-                 document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
         });
     }
 </script>

@@ -24,7 +24,11 @@
 </body>
 <script>
     //const UserID = urlParams.get('UserID')
-    var UserID = location.href.split("UserID")[1]
+   // var UserID = location.href.split("UserID")[1]
+    const params = new URLSearchParams(window. location. search)
+// params. has('UserID')
+var UserID = params. get('UserID')
+
     function callApi() {
         fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=Test_PMP_User1@domain.com&customerId=alexey.einor@usercentrics.com", {
             "headers": {

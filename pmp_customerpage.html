@@ -12,8 +12,8 @@
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
     
     Customer: <input id="CustomerID" value="alexey.einor@usercentrics.com"><p>
-    Private API key: 3<input id="PrivateKey" value="c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19">
-    End UserID:    <input id="UserID" value="TestUser@domain.com">
+    Private API key: 3<input id="PrivateKey" value="c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"><p>
+    End UserID:    <input id="UserID" value="TestUser@domain.com"><p>
     <b><p id="custom_header">User Profile management page<p></b>
       
     <button onclick="callApi()"> Genereate token... </button>
@@ -27,12 +27,15 @@
    // var UserID = location.href.split("UserID")[1]
 
                 const params = new URLSearchParams(window. location. search)
-                var UserID = params. get('UserID')
-                 document.getElementById("custom_header").innerHTML = "UserID: "+ UserID;
-                 document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
+           //     var UserID = params. get('UserID')
+                var UserID = document.getElementById('UserID').value;
+                var CustomerID = document.getElementById('CustomerID').value;
+                var PrivateKey = document.getElementById('UserID').value
+                // document.getElementById("custom_header").innerHTML = "UserID: "+ UserID;
+                 //document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
 
     function callApi() {
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +document.getElementById('UserID').value+ "&customerId=" +document.getElementById('CustomerID').value, {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=" +CustomerID, {
             "headers": {
                 "accept": "*/*",
                 "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
@@ -42,7 +45,7 @@
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "x-api-key": document.getElementById('UserID').value
+                "x-api-key": PrivateKey
             },
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",

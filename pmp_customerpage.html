@@ -11,8 +11,8 @@
     
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
     
-    Customer: <input size=40 id="CustomerID" value="alexey.einor@usercentrics.com"><p>
-    Private API key: <input  size=40 id="PrivateKey" value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"><p>
+    Customer:  alexey.einor@usercentrics.com <p>
+    Private API key:  3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19 <p>
     End UserID:    <input  size=40 id="UserID" value="TestUser@domain.com"><p>
     <b><p id="custom_header">User Profile management page<p></b>
       
@@ -35,7 +35,7 @@
                  //document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
 
     function callApi() {
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=" +CustomerID, {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=alexey.einor@usercentrics.com", {
             "headers": {
                 "accept": "*/*",
                 "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
@@ -45,7 +45,7 @@
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "x-api-key": \""+PrivateKey+"\"
+                "x-api-key": "3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"
             },
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",

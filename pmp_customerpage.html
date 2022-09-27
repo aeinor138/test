@@ -14,6 +14,8 @@
     Customer:  alexey.einor@usercentrics.com <p>
     Private API key:  3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19 <p>
     UserID: <b id="custom_header"></b>
+    <p>
+        Widgets to be rendered: <b id="custom_widgets"></b>
  
     <button onclick="callApi()"> Genereate token... </button>
     <p id="demo"></p>
@@ -32,6 +34,7 @@
           ///    var CustomerID = document.getElementById('CustomerID').value;
              ///   var PrivateKey = document.getElementById('UserID').value
                 document.getElementById("custom_header").innerHTML = UserID;
+                document.getElementById("custom_widgets").innerHTML = WidgetID;
                  //document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
 
     function callApi() {

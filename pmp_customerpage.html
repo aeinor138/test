@@ -3,12 +3,8 @@
 <head>
 </head>
     
-<body>
-  
-    <script>
-        
-    </script>
-  
+<body onload="callApi()">
+
       <div align=center>UserID: <b id="custom_header"></b></div>
     <p align=center><img src=account_page.png  usemap="#image-map"></p>
  
@@ -23,11 +19,11 @@
     <h2>Pre-defined parameters</h2>
     Customer:  alexey.einor@usercentrics.com <p>
     Private API key:  3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19 <p>
-   <!-- <h2>Variables</h2>
+   <h2>Variables</h2>
   
     <p>
         Widgets to be rendered: <b id="custom_widgets"></b>
- <p><p><p>
+<!--  <p><p><p>
     <button onclick="callApi()"> Genereate token... </button>
     <p id="demo"></p>
     link to      PreferenceApp for current user: <a target=_blank id=pmplink2 href="">Please generate the token first</a>  -->
@@ -68,10 +64,10 @@
         }).then(r => r.json()).then(r => {
             document.getElementById("demo").innerHTML = r.token;
            document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets="+ WidgetID+ "&token="+r.token+"";
-             document.getElementById("pmplink").innerHTML = "ready!";
+       //      document.getElementById("pmplink").innerHTML = "ready!";
             
         });
     }
-    callApi();
+    
 </script>
 </html>

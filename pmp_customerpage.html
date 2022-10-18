@@ -4,25 +4,33 @@
 </head>
     
 <body>
+  
     <script>
         
     </script>
-    <h1 id="pagetitle"></h1>
+  
+      <div align=center>UserID: <b id="custom_header"></b></div>
+    <p align=center><img src=account_page.png  usemap="#image-map"></p>
+ 
+<map name="image-map">
+    <area target=""  id=pmplink  alt="Preference management" title="Preference management" href="123" coords="817,128,931,156" shape="rect">
+</map>
+    
+    
+      <h1 id="pagetitle"></h1>
     
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
     <h2>Pre-defined parameters</h2>
     Customer:  alexey.einor@usercentrics.com <p>
     Private API key:  3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19 <p>
-    <h2>Variables</h2>
-    UserID: <b id="custom_header"></b>
+   <!-- <h2>Variables</h2>
+  
     <p>
         Widgets to be rendered: <b id="custom_widgets"></b>
  <p><p><p>
     <button onclick="callApi()"> Genereate token... </button>
-    <p id="demo"></p>
-    
+    <p id="demo"></p>-->
     link to      PreferenceApp for current user: <a target=_blank id=pmplink href="">Please generate the token first</a>  
-    <p align=center><img src=account_page.png></p>
 </body>
 <script>
     //const UserID = urlParams.get('UserID')
@@ -64,5 +72,6 @@
             
         });
     }
+    callApi();
 </script>
 </html>

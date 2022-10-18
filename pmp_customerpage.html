@@ -62,7 +62,7 @@
             "mode": "cors",
             "credentials": "include"
         }).then(r => r.json()).then(r => {
-            document.getElementById("demo").innerHTML = r.token;
+            // document.getElementById("demo").innerHTML = r.token;
            document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets="+ WidgetID+ "&token="+r.token+"";
        //      document.getElementById("pmplink").innerHTML = "ready!";
             

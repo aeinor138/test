@@ -3,7 +3,7 @@
 <head>
 </head>
     
-<body  onload="callApi()">
+<body >
 
       <div align=center>UserID: <b id="custom_header"></b></div>
     <p align=center><img src=account_page.png  usemap="#image-map"></p>
@@ -17,14 +17,16 @@
     
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
     <h2>Pre-defined parameters</h2>
-    Customer:  alexey.einor@usercentrics.com <p>
-    Private API key:  3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19 <p>
+    
    <h2>Variables</h2>
-  
+  Customer: <input id=CustomerID_input value="alexey.einor@usercentrics.com"> <p>
+    Private API key:  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"> <p>
+          WidgetsID: <input id=WidgetID_input value=""> <p>
+     UserID: <input id=UserID_input value=" "> <p>
     <p>
         Widgets to be rendered: <b id="custom_widgets"></b>
  <p><p><p>
-   <!-- <button> Create link with JWT token... </button>-->
+     <button onClick='callApi()'> Create link with JWT token... </button> 
 <p id="demo"></p>
     <!--     link to      PreferenceApp for current user: <a target=_blank id=pmplink2 href="">Please generate the token first</a>  -->
 </body>
@@ -33,11 +35,16 @@
    // var UserID = location.href.split("UserID")[1]
 
                 const params = new URLSearchParams(window.location.search)
-                var UserID = params. get('UserID')
+            /*    var UserID = params. get('UserID')
                  var WidgetID = params. get('WidgetID')
-             //   var UserID = document.getElementById('UserID').value;
-               var CustomerID = params. get('CustomerID')
+                   var CustomerID = params. get('CustomerID')
                var PrivateKey =params. get('PrivateKey')
+              */ 
+              var UserID = document.getElementById('UserID_input').value;
+              var PrivateKey = document.getElementById('PrivateKey_input').value;
+              var WidgetID = document.getElementById('WidgetID_input').value;
+              var CustomerID = document.getElementById('CustomerID_input').value;
+             
              ///   var PrivateKey = document.getElementById('UserID').value
                 document.getElementById("custom_header").innerHTML = UserID;
                 document.getElementById("custom_widgets").innerHTML = WidgetID;

@@ -36,15 +36,13 @@
                 var UserID = params. get('UserID')
                  var WidgetID = params. get('WidgetID')
              //   var UserID = document.getElementById('UserID').value;
-          ///    var CustomerID = document.getElementById('CustomerID').value;
+               var CustomerID = params. get('CustomerID')
              ///   var PrivateKey = document.getElementById('UserID').value
                 document.getElementById("custom_header").innerHTML = UserID;
                 document.getElementById("custom_widgets").innerHTML = WidgetID;
                  //document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
 
-    function callApi() {
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=alexey.einor@usercentrics.com", {
-            "headers": {
+    var CustomHeaders = "{
                 "accept": "*/*",
                 "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
                 "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
@@ -54,7 +52,11 @@
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
                 "x-api-key": "3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"
-            },
+            }";
+    
+    function callApi() {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=" +CustomerID+ "", {
+            "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": null,

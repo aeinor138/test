@@ -19,10 +19,10 @@
     <h2>Pre-defined parameters</h2>
     
    <h2>Variables</h2>
-  Customer: <input id=CustomerID_input value="alexey.einor@usercentrics.com"> <p>
-    Private API key:  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"> <p>
-          WidgetsID: <input id=WidgetID_input value="8a67417d-9cd5-4eab-a41b-647f999c9f11,8ad9a21d-8b9c-4f38-961e-881a0a1f5eb0"> <p>
-     UserID: <input id=UserID_input value="testuser@domain.com"> <p>
+        Customer: <input id=CustomerID_input value="alexey.einor@usercentrics.com"> <p>
+        Private API key:  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"> <p>
+        WidgetsID: <input id=WidgetID_input value="8a67417d-9cd5-4eab-a41b-647f999c9f11,8ad9a21d-8b9c-4f38-961e-881a0a1f5eb0"> <p>
+        UserID: <input id=UserID_input value="alexey@domain.com"> <p>
     <p>
         Widgets to be rendered: <b id="custom_widgets"></b>
  <p><p><p>
@@ -36,10 +36,10 @@
 
                 const params = new URLSearchParams(window.location.search)
                 
-                document.getElementById('UserID_input').value= params. get('UserID');
-                document.getElementById('WidgetID_input').value= params. get('WidgetID');
-                 document.getElementById('CustomerID_input').value= params. get('CustomerID');
-                document.getElementById('PrivateKey_input').value= params. get('PrivateKey');   
+               if (params. get('UserID')!='')   document.getElementById('UserID_input').value= params. get('UserID');
+               if (params. get('WidgetID')!='')   document.getElementById('WidgetID_input').value= params. get('WidgetID');
+               if (params. get('CustomerID')!='')  document.getElementById('CustomerID_input').value= params. get('CustomerID');
+               if (params. get('PrivateKey')!='') document.getElementById('PrivateKey_input').value= params. get('PrivateKey');   
                    
             /*    var UserID = params. get('UserID')
                  var WidgetID = params. get('WidgetID')

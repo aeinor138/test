@@ -3,7 +3,7 @@
 <head>
 </head>
     
-<body >
+<body onload='callApi()'>
 
       <div align=center>UserID: <b id="custom_header"></b></div>
     <p align=center><img src=account_page.png  usemap="#image-map"></p>
@@ -36,7 +36,11 @@
 
                 const params = new URLSearchParams(window.location.search)
                 
-               
+                document.getElementById('UserID_input').value= params. get('UserID');
+                document.getElementById('WidgetID_input').value= params. get('WidgetID');
+                 document.getElementById('CustomerID_input').value= params. get('CustomerID');
+                document.getElementById('PrivateKey_input').value= params. get('PrivateKey');   
+                   
             /*    var UserID = params. get('UserID')
                  var WidgetID = params. get('WidgetID')
                    var CustomerID = params. get('CustomerID')

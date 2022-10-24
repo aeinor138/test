@@ -40,17 +40,12 @@
                    var CustomerID = params. get('CustomerID')
                var PrivateKey =params. get('PrivateKey')
               */ 
-              var UserID = document.getElementById('UserID_input').value;
-              var PrivateKey = document.getElementById('PrivateKey_input').value;
-              var WidgetID = document.getElementById('WidgetID_input').value;
-              var CustomerID = document.getElementById('CustomerID_input').value;
-             
-             ///   var PrivateKey = document.getElementById('UserID').value
-                document.getElementById("custom_header").innerHTML = UserID;
-                document.getElementById("custom_widgets").innerHTML = WidgetID;
-                 //document.getElementById("pagetitle").innerHTML = " Profile management page for: "+ UserID;
+          
 
-    var CustomHeaders = {
+  
+    
+    function callApi() {
+          var CustomHeaders = {
                 "accept": "*/*",
                 "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
                 "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
@@ -61,8 +56,16 @@
                 "sec-fetch-site": "same-origin",
                 "x-api-key": PrivateKey
             };
-    
-    function callApi() {
+        
+        var UserID = document.getElementById('UserID_input').value;
+              var PrivateKey = document.getElementById('PrivateKey_input').value;
+              var WidgetID = document.getElementById('WidgetID_input').value;
+              var CustomerID = document.getElementById('CustomerID_input').value;
+             
+             ///   var PrivateKey = document.getElementById('UserID').value
+                document.getElementById("custom_header").innerHTML = UserID;
+                document.getElementById("custom_widgets").innerHTML = WidgetID;
+        
         fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=" +CustomerID+ "", {
             "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",

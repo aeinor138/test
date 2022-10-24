@@ -21,8 +21,8 @@
    <h2>Variables</h2>
   Customer: <input id=CustomerID_input value="alexey.einor@usercentrics.com"> <p>
     Private API key:  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19"> <p>
-          WidgetsID: <input id=WidgetID_input value=""> <p>
-     UserID: <input id=UserID_input value=" "> <p>
+          WidgetsID: <input id=WidgetID_input value="8a67417d-9cd5-4eab-a41b-647f999c9f11,8ad9a21d-8b9c-4f38-961e-881a0a1f5eb0"> <p>
+     UserID: <input id=UserID_input value="testuser@domain.com"> <p>
     <p>
         Widgets to be rendered: <b id="custom_widgets"></b>
  <p><p><p>
@@ -35,6 +35,8 @@
    // var UserID = location.href.split("UserID")[1]
 
                 const params = new URLSearchParams(window.location.search)
+                
+               
             /*    var UserID = params. get('UserID')
                  var WidgetID = params. get('WidgetID')
                    var CustomerID = params. get('CustomerID')

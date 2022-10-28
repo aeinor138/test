@@ -21,6 +21,7 @@
    <h2>Variables</h2>
            Widgets to be rendered: (to be removed) <input id=WidgetID_input value="8a67417d-9cd5-4eab-a41b-647f999c9f11,8ad9a21d-8b9c-4f38-961e-881a0a1f5eb0" size=100> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  
+     UserAlias (optional, End-user display name to be displayed on Preference App instead of userID. if empty - UserID will be displayed): <input id=UserAlias_input   size=100>  
        <h2>Pre-defined parameters</h2>
         Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
         Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19" size=100> <p>
@@ -38,11 +39,13 @@
 
                 const params = new URLSearchParams(window.location.search)
                 var UserID = params. get('UserID')
+                  var userPublicName= params. get('userPublicName')
                  var WidgetID = params. get('WidgetID')
                    var CustomerID = params. get('CustomerID')
                var PrivateKey =params. get('PrivateKey')
                
                if (UserID)   document.getElementById('UserID_input').value= UserID;
+               if (userPublicName)   document.getElementById('userPublicName_input').value= UserID;
                if (WidgetID)   document.getElementById('WidgetID_input').value= WidgetID;
                if (CustomerID)  document.getElementById('CustomerID_input').value= CustomerID;
                if (PrivateKey) document.getElementById('PrivateKey_input').value= PrivateKey;   
@@ -57,6 +60,7 @@
           
         
         var UserID = document.getElementById('UserID_input').value;
+        var userPublicName = document.getElementById('userPublicName_input').value;
               var PrivateKey = document.getElementById('PrivateKey_input').value;
               var WidgetID = document.getElementById('WidgetID_input').value;
               var CustomerID = document.getElementById('CustomerID_input').value;
@@ -77,7 +81,7 @@
                 "x-api-key": PrivateKey
             };
         
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&customerId=" +CustomerID+ "", {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
             "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",

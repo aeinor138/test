@@ -37,14 +37,14 @@
     //const UserID = urlParams.get('UserID')
    // var UserID = location.href.split("UserID")[1]
     
-                 var userPublicName ='';
-
+                
+                
                 const params = new URLSearchParams(window.location.search)
-                var UserID = params. get('UserID')
-                   userPublicName= params. get('userPublicName')
+                 var UserID = params. get('UserID')
+                 var userPublicName =   params. get('userPublicName');
                  var WidgetID = params. get('WidgetID')
-                   var CustomerID = params. get('CustomerID')
-               var PrivateKey =params. get('PrivateKey')
+                 var CustomerID = params. get('CustomerID')
+                 var PrivateKey =params. get('PrivateKey')
                
                if (UserID)   document.getElementById('UserID_input').value= UserID;
                if (userPublicName)   document.getElementById('userPublicName_input').value= UserID;
@@ -64,7 +64,7 @@
               var UserID = document.getElementById('UserID_input').value;
              
               
-              if (document.getElementById('userPublicName_input') userPublicName = document.getElementById('userPublicName_input').value; 
+              var userPublicName = document.getElementById('userPublicName_input').value; 
         
               var PrivateKey = document.getElementById('PrivateKey_input').value;
               var WidgetID = document.getElementById('WidgetID_input').value;

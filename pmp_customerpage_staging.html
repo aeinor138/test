@@ -19,7 +19,8 @@
  
     
    <h2>Variables</h2>
-           Widgets to be rendered: (to be removed) <input id=WidgetID_input value="43f82146-98bf-470c-a146-399fa68efbb0,642a28a2-6a8a-4e9d-912d-75f900ab2c98" size=100> <p>
+              Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
+           Widgets to be rendered: (optional) <input id=WidgetID_input value="" size=100> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
      UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
        <h2>Pre-defined parameters</h2>
@@ -43,12 +44,15 @@
                  var UserID = params. get('UserID')
                  var userPublicName =   params. get('userPublicName');
                  var WidgetID = params. get('WidgetID')
+                  var pacId = params. get('pacId')
+               
                  var CustomerID = params. get('CustomerID')
                  var PrivateKey =params. get('PrivateKey')
                
                if (UserID)   document.getElementById('UserID_input').value= UserID;
                if (userPublicName)   document.getElementById('userPublicName_input').value= UserID;
                if (WidgetID)   document.getElementById('WidgetID_input').value= WidgetID;
+                 if (pacId)   document.getElementById('pacId_input').value= pacId;
                if (CustomerID)  document.getElementById('CustomerID_input').value= CustomerID;
                if (PrivateKey) document.getElementById('PrivateKey_input').value= PrivateKey;   
                    
@@ -69,7 +73,7 @@
               var PrivateKey = document.getElementById('PrivateKey_input').value;
               var WidgetID = document.getElementById('WidgetID_input').value;
               var CustomerID = document.getElementById('CustomerID_input').value;
-             
+              var pacId =  document.getElementById('pacId_input').value;
              ///   var PrivateKey = document.getElementById('UserID').value
                 document.getElementById("custom_header").innerHTML = UserID;
              //   document.getElementById("custom_widgets").innerHTML = WidgetID;
@@ -96,7 +100,7 @@
             "credentials": "include"
         }).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
-           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?widgets="+ WidgetID+ "&token="+r.token+"";
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?pacId="+ pacId + "&widgets="+ WidgetID+ "&token="+r.token+"";
        //      document.getElementById("pmplink").innerHTML = "ready!";
             
         });

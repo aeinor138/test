@@ -21,11 +21,11 @@
    <h2>Variables</h2>
               Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
            Widgets to be rendered: (optional) <input id=WidgetID_input value="" size=100> <p>
-        UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
+        UserID (End-user you want to generate Preference App for): <input id=UserID_input value="" size=100>  <p>
      UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
        <h2>Pre-defined parameters</h2>
-        Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
-        Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19" size=100> <p>
+        Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="" size=100> <p>
+        Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="" size=100> <p>
  
     <p>
     <!--    Widgets to be rendered: <b id="custom_widgets"></b> -->
@@ -71,7 +71,8 @@
               var userPublicName = document.getElementById('userPublicName_input').value; 
         
               var PrivateKey = document.getElementById('PrivateKey_input').value;
-              var WidgetID = document.getElementById('WidgetID_input').value;
+             var WidgetID = '';
+              if (document.getElementById('WidgetID_input').value!='') WidgetID = "&widgets=" + document.getElementById('WidgetID_input').value;
               var CustomerID = document.getElementById('CustomerID_input').value;
               var pacId =  document.getElementById('pacId_input').value;
              ///   var PrivateKey = document.getElementById('UserID').value
@@ -90,7 +91,7 @@
                 "x-api-key": PrivateKey
             };
         
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
+        fetch("https://preference-api.preference-management.usercentrics.eu/authenticate/user?userId=" +UserID+ "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
             "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",
@@ -100,7 +101,7 @@
             "credentials": "include"
         }).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
-           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?pacId="+ pacId + "&widgets="+ WidgetID+ "&token="+r.token+"";
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics.eu/?pacId="+ pacId +   WidgetID+ "&token="+r.token+"";
        //      document.getElementById("pmplink").innerHTML = "ready!";
             
         });

@@ -91,7 +91,7 @@
                 "x-api-key": PrivateKey
             };
         
-        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
+        fetch("https://preference-api.preference-management.usercentrics-staging.eu/authenticate/user?userId=" +UserID+ "&pacUuid="+ pacId + "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
             "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
             "referrerPolicy": "strict-origin-when-cross-origin",
@@ -101,7 +101,7 @@
             "credentials": "include"
         }).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
-           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?pacId="+ pacId +   WidgetID+ "&token="+r.token+"";
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?pacId="+ WidgetID+ "&token="+r.token+"";
        //      document.getElementById("pmplink").innerHTML = "ready!";
             
         });

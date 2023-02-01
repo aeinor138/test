@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-
-
-
-    .custom_header_div_outer
-{
-  
-  width: 100%;
-   
-  position  : absolute; 
-  width     : 100%;  
-  height    : 100%; 
-  text-align: center;
+   <style> 
  
+.container{
+width: 1440px;
+  position: relative;
+height:100%;
+text-align:center;
 }
+ 
 .custom_header_div_inn {
+ 
+   position: absolute;
+  top: 100px;
+  right: 100px;
 
-   width  : 238px;
-   height : 138px;
-   display: inline-block;
-}
-    
+        
+    } 
     </style>
 </head>
     
 <body  >
-
- <div class="custom_header_div_outer"><div class="custom_header_div_inn">UserID: <b id="custom_header"></b></div></div>
-    <p align=center><img src=account_page.png  usemap="#image-map"></p>
+  <div class="container">
  
-<map name="image-map">
+  		 <img src=https://aeinor138.github.io/test/account_page.png usemap="#image-map">
+   		<div class="custom_header_div_inn">UserID: <b id="custom_header"></b></div>
+   </div> 
+   
+   <map name="image-map">
     <area target="_new"  id=pmplink  alt="Preference management" title="Preference management" href="" coords="817,128,931,156" shape="rect" border=1>
 </map>
-    
-    
       <h1 id="pagetitle"></h1>
     
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>

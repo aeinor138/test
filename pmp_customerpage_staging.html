@@ -3,24 +3,32 @@
 <head>
     <style>
 
-    .custom_header_div
+
+
+    .custom_header_div_outer
 {
-  background-color: rgba(0, 127, 255, 0.2);
-  width: 300px;
+  
+  width: 100%;
    
-  position: relative;
-  top: 50;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position  : absolute; 
+  width     : 100%;  
+  height    : 100%; 
+  text-align: center;
+ 
 }
+.custom_header_div_inn {
+
+   width  : 238px;
+   height : 138px;
+   display: inline-block;
+}
+    
     </style>
 </head>
     
 <body  >
 
-      <div class="custom_header_div">UserID: <b id="custom_header"></b></div>
+ <div class="custom_header_div_outer"><div class="custom_header_div_inn">UserID: <b id="custom_header"></b></div></div>
     <p align=center><img src=account_page.png  usemap="#image-map"></p>
  
 <map name="image-map">

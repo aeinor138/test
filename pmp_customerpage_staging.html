@@ -2,37 +2,33 @@
 <html lang="en">
 <head>
    <style> 
- 
-.container{
-width: 1440px;
+img {
+  display: block;
+  margin: 0 auto;
   position: relative;
-height:100%;
-text-align:center;
 }
- 
-.custom_header_div_inn {
- 
-   position: absolute;
-  top: 100px;
-  right: 100px;
 
-        
-    } 
+.custom_header_div_inn {
+  position: absolute;
+  top: 130px;
+  right: 100px;
+  left: 75%;
+  transform: translateX(-50%);
+}
     </style>
 </head>
     
 <body  >
-  <div class="container">
  
   		 <img src=https://aeinor138.github.io/test/account_page.png usemap="#image-map">
-   		<div class="custom_header_div_inn">UserID: <b id="custom_header"></b></div>
-   </div> 
-   
+         
+   		<div class="custom_header_div_inn">UserID: <b id="custom_header"></b>   </div> 
+       
    <map name="image-map">
     <area target="_new"  id=pmplink  alt="Preference management" title="Preference management" href="" coords="817,128,931,156" shape="rect" border=1>
 </map>
       <h1 id="pagetitle"></h1>
-    
+    <div class=vars>
     before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
  
     
@@ -44,8 +40,7 @@ text-align:center;
        <h2>Pre-defined parameters</h2>
         Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
         Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19" size=100> <p>
- 
-    <p>
+ </div>
     <!--    Widgets to be rendered: <b id="custom_widgets"></b> -->
  <p><p><p>
      <button onClick='callApi()'> Create link with JWT token... </button> 

@@ -148,7 +148,7 @@ img {
         }).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
            document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-staging.eu/?"+  "token="+r.token+ WidgetID;
-    
+     if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
     document.getElementById("token_now").innerHTML = r.token;
             
         });

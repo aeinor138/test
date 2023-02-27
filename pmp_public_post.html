@@ -1,60 +1,79 @@
-<html lang="en"><head>
- 
- <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="A5fWq5IJr" async></script></head>
-	<body>
-	
-		<h3>example of integration saving consent data function into existing form</h3>
-	<form action="http://google.com" >
-  <label>First Name</label>
-  <input type="text" /><p>
-		 <label>Last Name</label>
-  <input type="text" /><p>
-		 <label>Phone</label>
-  <input type="text" /><p>
-   
-  <label>Email</label>
-  <input  value='' id='uc_pmp_userid'><p>
-  
-   
- 
- 
-  <br><input type="checkbox" data-uc_pmp_id='5968d3b2-5652-4e91-b81b-2ec561fe1e8d'   checked /> Yes, doing AAA is part of my routine!
-  <br><input type="checkbox" data-uc_pmp_id='a1376d7f-7786-4703-8efa-ea3a37c5e6bc'   > Keep my up-2-date on Company CCC
-  <br><input type="checkbox" data-uc_pmp_id='fa09bbb1-9a20-44a1-809a-fe7580a7f26a'   > I am interested to get updates about product BBB
-    <p>
-        
-    </p>
- <br> <button type="submit" onclick="callApi()">Send</button>
+<html>
+<head>
+ </head>
+<title>Registration</title>
+<style>
+.main
+{
+ font-family: Helvetica;
+ width:30%;
+ margin:2em auto;
+ border:2px solid black;
+ padding:1em;
+}
+.main input[type="submit"]
+{
+ width:95%;
+ border:1px solid black;
+ padding:.5em;
+ margin:.5em;
+}
+.main input[type="password"]
+{
+ width:95%;
+ border:1px solid black;
+ padding:.5em;
+ margin:.5em;
+}
+.main input[type="text"],.main input[type="email"]
+{
+ width:45%;
+ border:1px solid black;
+ padding:.5em;
+ margin:.5em;
+}
+</style>
+</head>
+<body>
+<div class="main">
+
+ <form method="post" action="/test/">
+
+ <h2>Student Registration</h2>
+
+  <input type="text" name="fname" placeholder="First Name">
+  <input type="text" name="lname" placeholder="Last Name">
+  <input type="email" name="email" id='uc_pmp_userid' placeholder="Email">
+  <input type="text" name="mobile" placeholder="Mobile">
+  <input type="text" name="city" placeholder="City"><br>
+ <hr>
+  Gender<br>
+  <input type="radio" name="gender" value="Male">Male<br>
+  <input type="radio" name="gender" value="female">Female<br>
+ <hr>
+  Hobbies<br>
+  <input type="checkbox" name="hobby[]" value="Cricket"  data-uc_pmp_id='a026a8d8-f159-4320-9fdd-5b59aba8cf24'>Football<br>
+  <input type="checkbox" name="hobby[]" value="Football"  data-uc_pmp_id='82a66d0e-c9fd-49f3-9b59-098435032f61'>Hockey<br>
+  <input type="checkbox" name="hobby[ ]" value="Golf"  data-uc_pmp_id='9af493b1-a50a-4a7d-a765-444257967f21'>Golf<br>
+  <input type="checkbox" name="hobby[ ]" value="Polo"  data-uc_pmp_id='325ae6ac-e614-4a16-bea8-1960d6208a8a'>Basketball<br>
+  <input type="checkbox" name="hobby[ ]" value="Basketball"  data-uc_pmp_id='cf78c3ef-35f3-4bdf-98a9-fb64ecdfe303'>Polo<br>
+<hr>
+  <input type="Password" name="pass" placeholder="Password"><br>
+  <input type="submit" name="submit" value="Register"  onclick="callApi()">
  </form>
-		 
-  <div id='inputing'></div>
- <div id='resulting'></div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
 <script>
-    //const UserID = urlParams.get('UserID')
-   // var UserID = location.href.split("UserID")[1]
- 
-               
-                
-               // Define the mapping between field names and values
-    
-               
-                   
-            /*    
-              */ 
-          
-
-  
-    
+     
     function callApi() {
           
             var UserID = document.getElementById('uc_pmp_userid').value
      
-            var WidgetID = 'a385eda9-790d-48b5-bb9e-ea682d04e717';
-            var topicID = '5c0c2526-7f1b-4121-9967-4d8f698045b0';
+            var WidgetID = '6cedc12a-ea98-4628-8104-655ec452c4f2';
+            var topicID = '498ece77-d524-4ca7-9c5d-eb9227db2727';
                
-            var PrivateKey ='7b931a08aa5eed20e4b73941139de670c5fb4b71ce7d4da76a217f7e34bea0d1';
+            var PrivateKey ='f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e';
         
         var json_input = {
                      "widgetId": WidgetID,
@@ -68,23 +87,18 @@
                     ]
                 }
         
-     
-         
-    
- 
-
-// Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
+ // Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
 //const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
 const checkboxes = document.querySelectorAll('[data-uc_pmp_id]');
 // Create an empty array to store the checkbox values
 const checkboxValues = [];
 
 // Loop through each checkbox and add its value to the checkboxValues array if it is checked
-//checkboxes.forEach((checkbox) => {
+
 checkboxes.forEach(element => {
- // if (checkbox.name in mapping && checkbox.checked) {
+
     checkboxValues.push(element.getAttribute('data-uc_pmp_id'));
-  //}
+
 });
  console.log(checkboxValues);
  
@@ -109,16 +123,8 @@ const mainJsonString = JSON.stringify(mainJsonObject);
 // Log the main JSON string to the console (optional)
 //console.log(mainJsonString);
 
-console.log("https://preference-api.preference-management.usercentrics-sandbox.eu/public/preferences?userId=" +UserID);
-// console.log(CustomHeaders);
-
-console.log(mainJsonString);
-
-  
  
- const endpoint = `https://preference-api.preference-management.usercentrics-sandbox.eu/public/preferences?userId=${UserID}`;
-
- 
+ const endpoint = `https://preference-api.preference-management.usercentrics.eu/public/preferences?userId=${UserID}`;
 
 fetch(endpoint, {
   method: 'POST',
@@ -130,7 +136,7 @@ fetch(endpoint, {
   body: mainJsonString,
   credentials: 'include',
   mode: 'cors',
-  referrer: 'https://preference-api.preference-management.usercentrics-sandbox.eu/api-doc/',
+  referrer: 'https://preference-api.preference-management.usercentrics.eu/api-doc/',
   referrerPolicy: 'strict-origin-when-cross-origin'
 })
 .then(response => response.json())
@@ -147,10 +153,7 @@ fetch(endpoint, {
   
   
 }
-  //  callApi();
     
 </script>
-
-
-	
-	 </body></html>
+</body>
+</html>

@@ -1,28 +1,25 @@
- <html lang="en"><head>
+<html lang="en"><head>
  
  
 	<body>
 	
 	
-	<form  >
+	<form action="http://google.com" >
   <label>Full Name</label>
   <input type="text" /><p>
    
-  <label>Email/UserID</label>
-  <input type="text" value='' id='uc_pmp_userid'><p>
+  <label>Email</label>
+  <input  value='' id='uc_pmp_userid'><p>
   
   <label>Message</label><p>
  
  
-  <br><input type="checkbox" name='uc_pmp_1'   checked /> I've read the
+  <br><input type="checkbox" data-uc_pmp_id='43b76bae-30a6-444a-8691-3c6ba4b06c72'   checked /> I've read the
  <a href="#">Privacy Policy</a> and accept the <a href="#">Terms and Conditions</a>
-  <br><input type="checkbox" name='uc_pmp_2'  value= > Send me information about products, services,
+  <br><input type="checkbox" data-uc_pmp_id='f5daf7ef-b0a6-4588-a12f-b8284bbf589a'   > Send me information about products, services,
 deals or recommendations by email (optional)
     <p>
-        <pre> const mapping = {
-  uc_pmp_1: 'f5daf7ef-b0a6-4588-a12f-b8284bbf589a',
-  uc_pmp_2: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
-};</pre>
+        
     </p>
  <br> <button type="submit" onclick="callApi()">Send</button>
  </form>
@@ -70,24 +67,23 @@ deals or recommendations by email (optional)
      
          
     
- const mapping = {
-  uc_pmp_1: 'f5daf7ef-b0a6-4588-a12f-b8284bbf589a',
-  uc_pmp_2: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
-};
+ 
 
 // Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
-const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
-
+//const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+const checkboxes = document.querySelectorAll('[data-uc_pmp_id]');
 // Create an empty array to store the checkbox values
 const checkboxValues = [];
 
 // Loop through each checkbox and add its value to the checkboxValues array if it is checked
-checkboxes.forEach((checkbox) => {
-  if (checkbox.name in mapping && checkbox.checked) {
-    checkboxValues.push(mapping[checkbox.name]);
-  }
+//checkboxes.forEach((checkbox) => {
+checkboxes.forEach(element => {
+ // if (checkbox.name in mapping && checkbox.checked) {
+    checkboxValues.push(element.getAttribute('data-uc_pmp_id'));
+  //}
 });
-
+ console.log(checkboxValues);
+ 
 // Define the topicAnswerUuids array with the checkboxValues array
 const topicAnswerUuids = checkboxValues;
 

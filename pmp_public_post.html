@@ -1,0 +1,156 @@
+ <html lang="en"><head>
+ 
+ 
+	<body>
+	
+	
+	<form  >
+  <label>Full Name</label>
+  <input type="text" /><p>
+   
+  <label>Email</label>
+  <input type="email" value='' id='uc_pmp_userid'><p>
+  
+  <label>Message</label><p>
+ 
+ 
+  <br><input type="checkbox" name='uc_pmp_1'   checked /> I've read the
+ <a href="#">Privacy Policy</a> and accept the <a href="#">Terms and Conditions</a>
+  <br><input type="checkbox" name='uc_pmp_2'  value= > Send me information about products, services,
+deals or recommendations by email (optional)
+    <p>
+        <pre> const mapping = {
+  uc_pmp_1: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
+  uc_pmp_2: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
+};</pre>
+    </p>
+ <br> <button type="submit" onclick="callApi()">Send</button>
+ </form>
+  <div id='inputing'></div>
+ <div id='resulting'></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+<script>
+    //const UserID = urlParams.get('UserID')
+   // var UserID = location.href.split("UserID")[1]
+ 
+               
+                
+               // Define the mapping between field names and values
+    
+               
+                   
+            /*    
+              */ 
+          
+
+  
+    
+    function callApi() {
+          
+            var UserID = document.getElementById('uc_pmp_userid').value
+     
+            var WidgetID = '4d498733-bf21-4cad-b26f-c8fba6006bff';
+            var topicID = 'e2d958e7-e63c-4336-a31a-f564864d7ef4';
+               
+            var PrivateKey ='7b931a08aa5eed20e4b73941139de670c5fb4b71ce7d4da76a217f7e34bea0d1';
+        
+        var json_input = {
+                     "widgetId": WidgetID,
+                    "answers": [
+                          {
+                      "topicUuid": topicID,
+                    "topicAnswerUuids": [
+                           "string"
+                         ]
+                         }
+                    ]
+                }
+        
+     
+         
+    
+ const mapping = {
+  uc_pmp_1: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
+  uc_pmp_2: '43b76bae-30a6-444a-8691-3c6ba4b06c72',
+};
+
+// Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
+const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+
+// Create an empty array to store the checkbox values
+const checkboxValues = [];
+
+// Loop through each checkbox and add its value to the checkboxValues array if it is checked
+checkboxes.forEach((checkbox) => {
+  if (checkbox.name in mapping && checkbox.checked) {
+    checkboxValues.push(mapping[checkbox.name]);
+  }
+});
+
+// Define the topicAnswerUuids array with the checkboxValues array
+const topicAnswerUuids = checkboxValues;
+
+// Define the answers object with the topicUuid and topicAnswerUuids array
+const answers = {
+  topicUuid: topicID,
+  topicAnswerUuids: topicAnswerUuids,
+};
+
+// Define the main JSON object with the widgetId and answers array
+const mainJsonObject = {
+  widgetId: WidgetID,
+  answers: [answers],
+};
+
+// Convert the main JSON object to a string
+const mainJsonString = JSON.stringify(mainJsonObject);
+
+// Log the main JSON string to the console (optional)
+//console.log(mainJsonString);
+
+console.log("https://preference-api.preference-management.usercentrics-sandbox.eu/public/preferences?userId=" +UserID);
+// console.log(CustomHeaders);
+
+console.log(mainJsonString);
+
+  
+ 
+ const endpoint = `https://preference-api.preference-management.usercentrics-sandbox.eu/public/preferences?userId=${UserID}`;
+
+ 
+
+fetch(endpoint, {
+  method: 'POST',
+  headers: {
+    'accept': 'application/json',
+    'X-API-KEY': PrivateKey,
+    'Content-Type': 'application/json'
+  },
+  body: mainJsonString,
+  credentials: 'include',
+  mode: 'cors',
+  referrer: 'https://preference-api.preference-management.usercentrics-sandbox.eu/api-doc/',
+  referrerPolicy: 'strict-origin-when-cross-origin'
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+  // Handle response data here
+})
+.catch(error => {
+  console.error(error);
+  // Handle errors here
+});
+
+  
+  
+  
+}
+  //  callApi();
+    
+</script>
+
+
+	
+	 </body></html>

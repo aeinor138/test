@@ -268,10 +268,36 @@
   </head>
   <body>
     <div class="container">
-      <form class="login">
+      <form
+        class="login"
+        action="https://aeinor138.github.io/test/pmp_customerpage.html"
+        method="GET"
+      >
+        <input
+          type="hidden"
+          name="CustomerID"
+          value="alexey.einor@usercentrics.com"
+        />
+        <input
+          type="hidden"
+          name="PrivateKey"
+          value="f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e"
+        />
+        <input
+          type="hidden"
+          name="pacId"
+          value="f5b6c201-1640-4971-99a0-788ddbff2769"
+        />
+        <input type="hidden" />
         <h2>Login</h2>
-        <input placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          name="UserID"
+          value="user@domain.com"
+        />
+        <input type="password" placeholder="Password" />
         <button class="submit" type="submit">Sign</button>
         <button class="social" type="submit">Sign in with Google</button>
         <button class="social" type="submit">Sign in with Apple</button>

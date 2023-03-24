@@ -1,21 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-   
-  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
 
+      body {
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://aeinor138.github.io/test/account_page_bkg.png");
+        background-repeat: no-repeat;
+        background-position: top;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Preference management test</title>
- 
-</head>
+      .container {
+        background-color: #ffffff;
+        display: flex;
+        width: 600px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
 
-<body><script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="A5fWq5IJr" async></script>
- <p align=center><a href=https://aeinor138.github.io/test/pmp_customerpage.html?UserID=user@company.com&CustomerID=alexey.einor@usercentrics.com&PrivateKey=f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e&pacid=f0e1bc09-8b14-47a3-9aa2-ef40075f8c9a&pacId=f0e1bc09-8b14-47a3-9aa2-ef40075f8c9a><img src=pmp_login.png></a> 
+      .login,
+      .signup {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 0 20px;
+      }
 
-<!-- <p align=center><a href=https://aeinor138.github.io/test/pmp_customerpage.html?UserID=testuser@domain.com&WidgetID=89a654c2-1e0b-46da-b6ee-4489dcf568eb&CustomerID=alexey.einor@usercentrics.com&PrivateKey=3c3aa54d80d3af7fe7a119b4d282b7dde5287b096080e413b2ccf377c17e1a19><img src=index_image.png></a>-->
- </p> 
-  
-  </html>
+      h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      input {
+        border: 1px solid #ccc;
+        border-radius: 0;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      input:focus {
+        outline: none !important;
+        border: 1px solid #504242;
+        box-shadow: 0 0 2px #504242;
+      }
+
+      button {
+        border: none;
+        border-radius: 0;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .social {
+        border: 2px solid #504242;
+        background-color: transparent;
+        color: #504242;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+      }
+
+      .apple {
+        background-color: #504242;
+        color: #ffffff;
+        margin-bottom: 5px;
+      }
+
+      .forgot {
+        background-color: transparent;
+        color: #504242;
+        margin-bottom: 20px;
+        text-decoration: underline;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .submit {
+        background-color: #504242;
+        color: #ffffff;
+        margin-bottom: 5px;
+      }
+
+      .hidden-radio {
+        display: none;
+      }
+
+      .custom-radio {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #504242;
+        cursor: pointer;
+        position: relative;
+        margin-right: 5px;
+      }
+
+      .custom-radio::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #504242;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.2s ease;
+      }
+
+      .hidden-radio:checked + .custom-radio::after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .radio-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+
+      .hidden-checkbox {
+        display: none;
+      }
+
+      .custom-checkbox {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #504242;
+        cursor: pointer;
+        position: relative;
+        margin-right: 5px;
+      }
+
+      .custom-checkbox::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 10px;
+        border: solid #504242;
+        border-width: 0 2px 2px 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+        transition: transform 0.2s ease;
+      }
+
+      .hidden-checkbox:checked + .custom-checkbox::after {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+      }
+
+      .checkbox-container {
+        display: flex;
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+      }
+      .radio-container {
+        font-size: 14px;
+        display: flex;
+      }
+      .radio-container-box {
+        display: flex;
+        flex-direction: column;
+      }
+      .checkbox-container span {
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function callApi() {
+        var UserID = document.getElementById("uc_pmp_userid").value;
+
+        var WidgetID = "333192ab-61d3-41e5-b527-b0a7eca9a7d4";
+        var topicID = "2c0cd419-d8fe-4296-a9aa-f88929e70b68";
+
+        var PrivateKey =
+          "f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e";
+
+        var json_input = {
+          widgetId: WidgetID,
+          answers: [
+            {
+              topicUuid: topicID,
+              topicAnswerUuids: ["string"]
+            }
+          ]
+        };
+
+        // Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
+        //const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+        const checkboxes = document.querySelectorAll("[data-uc_pmp_id]");
+        // Create an empty array to store the checkbox values
+        const checkboxValues = [];
+
+        // Loop through each checkbox and add its value to the checkboxValues array if it is checked
+
+        checkboxes.forEach((element) => {
+          if (element.checked) {
+            checkboxValues.push(element.getAttribute("data-uc_pmp_id"));
+          }
+        });
+        console.log(checkboxValues);
+
+        // Define the topicAnswerUuids array with the checkboxValues array
+        const topicAnswerUuids = checkboxValues;
+
+        // Define the answers object with the topicUuid and topicAnswerUuids array
+        const answers = {
+          topicUuid: topicID,
+          topicAnswerUuids: topicAnswerUuids
+        };
+
+        // Define the main JSON object with the widgetId and answers array
+        const mainJsonObject = {
+          widgetId: WidgetID,
+          answers: [answers]
+        };
+
+        // Convert the main JSON object to a string
+        const mainJsonString = JSON.stringify(mainJsonObject);
+
+        // Log the main JSON string to the console (optional)
+        //   console.log(mainJsonString);
+
+        const endpoint = `https://preference-api.preference-management.usercentrics.eu/public/preferences?userId=${UserID}`;
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: {
+            accept: "application/json",
+            "X-API-KEY": PrivateKey,
+            "Content-Type": "application/json"
+          },
+          body: mainJsonString,
+          credentials: "include",
+          mode: "cors",
+          referrer:
+            "https://preference-api.preference-management.usercentrics.eu/api-doc/",
+          referrerPolicy: "strict-origin-when-cross-origin"
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("output".data);
+            // Handle response data here
+          })
+          .catch((error) => {
+            console.error(error);
+            // Handle errors here
+          });
+      }
+    </script>
+    <title>Signin/Signup Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="login">
+        <h2>Login</h2>
+        <input placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button class="submit" type="submit">Sign</button>
+        <button class="social" type="submit">Sign in with Google</button>
+        <button class="social" type="submit">Sign in with Apple</button>
+        <button class="forgot">Forgot your password?</button>
+      </form>
+      <form
+        class="signup"
+        action="https://aeinor138.github.io/test/pmp_customerpage.html"
+        method="GET"
+      >
+        <input
+          type="hidden"
+          name="CustomerID"
+          value="alexey.einor@usercentrics.com"
+        />
+        <input
+          type="hidden"
+          name="PrivateKey"
+          value="f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e"
+        />
+        <input
+          type="hidden"
+          name="pacId"
+          value="f5b6c201-1640-4971-99a0-788ddbff2769"
+        />
+
+        <h2>Create Account</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          name="UserID"
+          id="uc_pmp_userid"
+          required
+        />
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+        <input type="password" placeholder="Password" />
+        <b>My fashion style:</b>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="check4"
+            data-uc_pmp_id="a0d81db6-66eb-4429-814e-d6f1166a00ca"
+            name="checks"
+            class="hidden-checkbox"
+          />
+          <label for="check4" class="custom-checkbox"></label>
+          <span>Business casual</span>
+        </div>
+
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="check3"
+            data-uc_pmp_id="06930ebf-a53c-45c4-9c4d-45f0ae2b2c98"
+            name="checks"
+            class="hidden-checkbox"
+          />
+          <label for="check3" class="custom-checkbox"></label>
+          <span>Boho style</span>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="check2"
+            data-uc_pmp_id="dd22f847-cc54-42e3-8e9e-87581aa00c4c"
+            name="checks"
+            class="hidden-checkbox"
+          />
+          <label for="check2" class="custom-checkbox"></label>
+          <span>Sporty</span>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="check1"
+            data-uc_pmp_id="f7b264b8-8107-4385-ac72-5e6516e6cf01"
+            name="checks"
+            class="hidden-checkbox"
+          />
+          <label for="check1" class="custom-checkbox"></label>
+          <span>Grunge</span>
+        </div>
+        <!---
+        <div class="radio-container-box">
+          <b>I buy new cloth:</b>
+          <div class="radio-container">
+            <input
+              type="radio"
+              id="option1"
+              data-uc_pmp_id="8a92a043-681d-4a38-8391-1c1f65476da3"
+              name="options"
+              class="hidden-radio"
+            />
+            <label for="option1" class="custom-radio"></label>
+            <span>Every week</span>
+          </div>
+
+        
+          <div class="radio-container">
+            <input
+              type="radio"
+              id="option2"
+              data-uc_pmp_id="97ecdafc-7d7b-41d8-b085-2d130c6103c8"
+              name="options"
+              class="hidden-radio"
+            />
+            <label for="option2" class="custom-radio"></label>
+            <span>1-2 times per month</span>
+          </div>
+          <div class="radio-container">
+            <input
+              type="radio"
+              id="option3"
+              data-uc_pmp_id="11de987f-2596-4da5-8696-5a983241fb86"
+              name="options"
+              class="hidden-radio"
+            />
+            <label for="option3" class="custom-radio"></label>
+            <span>Every season</span>
+          </div>
+        </div>
+        -->
+
+        <button class="submit" type="submit" onclick="callApi()">Create</button>
+      </form>
+    </div>
+  </body>
+</html>

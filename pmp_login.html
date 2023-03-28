@@ -178,7 +178,7 @@
         flex-direction: column;
       }
       .checkbox-container span {
-        cursor: pointer;
+        cursor: pointer; display: flex;width:90%;
       }
     </style>
     <script>
@@ -202,19 +202,33 @@
         };
 
         // Get all the checkboxes and radio buttons in the form with names that start with "uc_pmp_"
-        //const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
-        const checkboxes = document.querySelectorAll("[data-uc_pmp_id]");
-        // Create an empty array to store the checkbox values
-        const checkboxValues = [];
+       const inputs = document.querySelectorAll('input[type="checkbox"]:checked,  input[type="hidden"]');
+       //const inputs = document.querySelectorAll('input[type="checkbox"]:checked, input[type="radio"]:checked, select option:selected, input[type="hidden"]');
 
+const inputValues = [];
+ 
+inputs.forEach((input) => {
+ //inputValues.push(input.getAttribute("data-uc_pmp_id"));
+  const value = input.getAttribute("data-uc_pmp_id");
+  if (value) {
+    inputValues.push(value);
+  }
+});
+
+        //const checkboxes = document.querySelectorAll("[data-uc_pmp_id]");
+        // Create an empty array to store the checkbox values
+        const checkboxValues = inputValues;
+ 
         // Loop through each checkbox and add its value to the checkboxValues array if it is checked
 
-        checkboxes.forEach((element) => {
+       /*
+       checkboxes.forEach((element) => {
           if (element.checked) {
             checkboxValues.push(element.getAttribute("data-uc_pmp_id"));
           }
         });
-        console.log(checkboxValues);
+*/
+console.log(checkboxValues);
 
         // Define the topicAnswerUuids array with the checkboxValues array
         const topicAnswerUuids = checkboxValues;
@@ -235,7 +249,7 @@
         const mainJsonString = JSON.stringify(mainJsonObject);
 
         // Log the main JSON string to the console (optional)
-        //   console.log(mainJsonString);
+           console.log(mainJsonString);
 
         const endpoint = `https://preference-api.preference-management.usercentrics.eu/public/preferences?userId=${UserID}`;
 
@@ -346,9 +360,23 @@
             class="hidden-checkbox"
           />
           <label for="check4" class="custom-checkbox"></label>
-          <span>News from Brands</span>
-        </div>
-
+          <span>I hereby confirm that I have read and accept the Terms and Conditions and my email address may be used for direct advertising and marketing covering the products and services offered by ACME GmbH. 
+</span>
+        </div>  <input
+            type="hidden"
+            id="check3"
+            data-uc_pmp_id="b5897549-1f49-45f6-aae8-be306781ebd0"
+            name="checks"
+            class="hidden-checkbox"  value=''
+          />
+          <input
+            type="hidden"
+            id="check1"
+            data-uc_pmp_id="e89a0f7f-5162-411e-a7ab-ca6dd24b443b"
+            name="checks"
+            class="hidden-checkbox" value=checked
+          />
+<!--
         <div class="checkbox-container">
           <input
             type="checkbox"
@@ -371,6 +399,7 @@
           <label for="check1" class="custom-checkbox"></label>
           <span>Sales and Offers</span>
         </div>
+        -->
         <!---
         <div class="radio-container-box">
           <b>I buy new cloth:</b>

@@ -42,14 +42,14 @@ img {
  
 
   <div id="something-else-in-your-website">
-      <div class="embedded-preference-widget" data-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFuZHJpaS52b2l0c2VraGl2c2t5aUB1c2VyY2VudHJpY3MtZXh0LmNvbSIsInBhY1V1aWQiOiJkNWYxZWRjNC1lMjllLTQzYmUtYWNhZi01MDI4Mzk0MDhmMGEiLCJpYXQiOjE2OTE1ODAzMzgsImV4cCI6MTY5MTYwOTEzOH0.SSvf9GRcG7tf5zjCOlEuwH70rokvzYQ9WURScqmIU4A" data-widgetid="27e2063c-c48f-49b8-b731-d93697b4405b"></div>
+      <div id="emb_widget" class="embedded-preference-widget" data-token="" data-widgetid=""></div>
     </div>
 
 
 
     
     <link href="styles.css" rel="stylesheet"/> 
-    <script src="./bundle.js"></script>
+    <script src="bundle.js"></script>
 
   
       <div class="expandable">
@@ -156,8 +156,9 @@ img {
             // document.getElementById("demo").innerHTML = r.token;
            document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token+ WidgetID;
      if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
-    document.getElementById("token_now").innerHTML = r.token;
-            
+    //document.getElementById("token_now").innerHTML = r.token;
+            document.getElementById("emb_widget").data-token = r.token;
+          document.getElementById("emb_widget").data-widget = WidgetID;
         });
     }
     callApi();

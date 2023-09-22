@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PMP Test Stand - SANDBOX</title>
+<style> 
+img {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.custom_header_div_inn {
+  position: absolute;
+  top: 130px;
+  right: 100px;
+  left: 75%;
+  transform: translateX(-50%);
+}
+
+.expandable {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.details {
+  max-height: 0;
+}
+
+.expanded .details {
+  max-height: 400px; /* Change this value to adjust height of expanded text */
+}
+
+
+    </style>
+</head>
+    
+<body  >
+ 
+  		 <img src=https://aeinor138.github.io/test/account_page.png usemap="#image-map">
+         
+   		<div class="custom_header_div_inn">UserID: <b id="custom_header"></b>   </div> 
+       
+   <map name="image-map">
+    <area target="_new"  id=pmplink  alt="Preference management" title="Preference management" href="" coords="817,128,931,156" shape="rect" border=1>
+</map>
+ 
+      <div class="expandable">
+ 
+    <p class="summary">sandbox Specify integration variables
+    <button onClick='callApi()'> Create link with JWT token... </button>
+    </p>
+     <div class="details"> 
+    before the page is loaded, User specific JWT token to be generated to access Preference management app:<p>
+ 
+    
+   <h2>Variables</h2>
+   JWT token: <div id=token_now></div><p>
+              Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
+           Widgets to be rendered: (optional) <input id=WidgetID_input value="" size=100> <p>
+        UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
+     UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
+       <h2>Pre-defined parameters</h2>
+        Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
+        Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="7b931a08aa5eed20e4b73941139de670c5fb4b71ce7d4da76a217f7e34bea0d1" size=100> <p>
+
+    <p>
+ 
+ 
+</div>
+</div>
+ 
+</body>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $('.expandable').click(function() {
+  if (!$(this).hasClass('expanded')) {
+    $(this).addClass('expanded');
+  }
+});
+    </script>
+<script>
+    //const UserID = urlParams.get('UserID')
+   // var UserID = location.href.split("UserID")[1]
+ 
+               
+                const params = new URLSearchParams(window.location.search)
+                 var UserID = params. get('UserID')
+                 var userPublicName =   params. get('userPublicName');
+                 var WidgetID = params. get('WidgetID')
+                  var pacId = params. get('pacId')
+               
+                 var CustomerID = params. get('CustomerID')
+                 var PrivateKey =params. get('PrivateKey')
+               
+               if (UserID)   document.getElementById('UserID_input').value= UserID;
+               if (userPublicName)   document.getElementById('userPublicName_input').value= UserID;
+               if (WidgetID)   document.getElementById('WidgetID_input').value= WidgetID;
+                 if (pacId)   document.getElementById('pacId_input').value= pacId;
+               if (CustomerID)  document.getElementById('CustomerID_input').value= CustomerID;
+               if (PrivateKey) document.getElementById('PrivateKey_input').value= PrivateKey;   
+                   
+            /*    
+              */ 
+          
+
+  
+    
+    function callApi() {
+          
+        
+              var UserID = document.getElementById('UserID_input').value;
+             
+              
+              var userPublicName = document.getElementById('userPublicName_input').value; 
+        
+              var PrivateKey = document.getElementById('PrivateKey_input').value;
+             var WidgetID = '';
+              if (document.getElementById('WidgetID_input').value!='') WidgetID = "&widgets=" + document.getElementById('WidgetID_input').value;
+              var CustomerID = document.getElementById('CustomerID_input').value;
+              var pacId =  document.getElementById('pacId_input').value;
+             ///   var PrivateKey = document.getElementById('UserID').value
+                document.getElementById("custom_header").innerHTML = UserID;
+             //   document.getElementById("custom_widgets").innerHTML = WidgetID;
+        
+        var CustomHeaders = {
+                "accept": "*/*",
+                "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
+                "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-api-key": PrivateKey
+            };
+         
+         
+         
+        fetch("https://preference-api.preference-management.usercentrics-sandbox.eu/public/authenticate/user?userId=" +UserID+ "&pacUuid="+ pacId + "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
+            "headers": CustomHeaders,
+            "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": null,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(r => r.json()).then(r => {
+            // document.getElementById("demo").innerHTML = r.token;
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token+ WidgetID;
+     if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
+    document.getElementById("token_now").innerHTML = r.token;
+            
+        });
+    }
+    callApi();
+</script>
+</html>

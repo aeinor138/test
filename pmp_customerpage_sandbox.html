@@ -135,8 +135,47 @@ img {
                 "x-api-key": PrivateKey
             };
          
-         
-         
+          var CustomBody = {
+                "accept": "*/*",
+                "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
+                "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-api-key": PrivateKey
+            };
+
+
+      const postData = {
+  pacUuid: pacId,
+  userId: UserID,
+  userPublicName: userPublicName
+};
+
+const apiUrl = 'https://preference-api.preference-management.usercentrics-sandbox.eu/public/authenticate';
+const apiKey = PrivateKey;
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-KEY': apiKey,
+    'accept': 'application/json'
+  },
+  body: JSON.stringify(postData)
+}).then(r => r.json()).then(r => {
+            // document.getElementById("demo").innerHTML = r.token;
+           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token+ WidgetID;
+           document.getElementById("ew_link").href = "https://aeinor138.github.io/test/ew_sandbox.html?TOKEN=" +r.token+ "&WIDGET_ID="+ document.getElementById('WidgetID_input').value;
+     if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
+    document.getElementById("token_now").innerHTML = r.token;
+            
+        });
+
+
+   /*   
         fetch("https://preference-api.preference-management.usercentrics-sandbox.eu/public/authenticate/user?userId=" +UserID+ "&pacUuid="+ pacId + "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
             "headers": CustomHeaders,
             "referrer": "https://preference-api.preference-management.usercentrics-staging.eu/api-doc/",
@@ -152,7 +191,7 @@ img {
      if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
     document.getElementById("token_now").innerHTML = r.token;
             
-        });
+        });*/
     }
     callApi();
 </script>

@@ -57,7 +57,7 @@ img {
    <h2>Variables</h2>
    JWT token: <div id=token_now></div><p>
               Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
-           Widgets to be rendered: (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
+          Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
      UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
        <h2>Pre-defined parameters</h2>
@@ -167,7 +167,8 @@ fetch(apiUrl, {
   body: JSON.stringify(postData)
 }).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
-           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token+ WidgetID;
+     //      document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token+ WidgetID;
+        document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics-sandbox.eu/?"+  "token="+r.token;
            document.getElementById("ew_link").href = "https://aeinor138.github.io/test/ew_sandbox.html?TOKEN=" +r.token+ "&WIDGET_ID="+ document.getElementById('WidgetID_input').value;
      if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
     document.getElementById("token_now").innerHTML = r.token;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Preference Management Demo website</title>
+<title>PMP Test Stand - PROD</title>
 <style> 
 img {
   display: block;
@@ -44,10 +44,10 @@ img {
    <map name="image-map">
     <area target="_new"  id=pmplink  alt="Preference management" title="Preference management" href="" coords="817,128,931,156" shape="rect" border=1>
 </map>
- 
+
       <div class="expandable">
  
-    <p class="summary">Specify integration variables
+    <p class="summary">sandbox Specify integration variables
     <button onClick='callApi()'> Create link with JWT token... </button>
     </p>
      <div class="details"> 
@@ -57,12 +57,12 @@ img {
    <h2>Variables</h2>
    JWT token: <div id=token_now></div><p>
               Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
-           Widgets to be rendered: (optional) <input id=WidgetID_input value="" size=100> <a target="_new" id=ew_link>Click here to open Widget-only page </a>   <p>
+          Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
      UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
        <h2>Pre-defined parameters</h2>
-        Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
-        Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="f5d92a3a3d83375345288ec31d6845b304c58740ce2be0e3a3aaf52b8c27326e" size=100> <p>
+        Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="" size=100> <p>
+        Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="" size=100> <p>
 
     <p>
  
@@ -135,24 +135,46 @@ img {
                 "x-api-key": PrivateKey
             };
          
-         
-         
-        fetch("https://preference-api.preference-management.usercentrics.eu/public/authenticate/user?userId=" +UserID+ "&pacUuid="+ pacId + "&userPublicName=" +userPublicName+ "&customerId=" +CustomerID+ "", {
-            "headers": CustomHeaders,
-            "referrer": "https://preference-api.preference-management.usercentrics.eu/api-doc/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        }).then(r => r.json()).then(r => {
+          var CustomBody = {
+                "accept": "*/*",
+                "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
+                "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"macOS\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-api-key": PrivateKey
+            };
+
+
+      const postData = {
+  pacUuid: pacId,
+  userId: UserID,
+  userPublicName: userPublicName
+};
+
+const apiUrl = 'https://preference-api.preference-management.usercentrics.eu/public/authenticate';
+const apiKey = PrivateKey;
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-API-KEY': apiKey,
+    'accept': 'application/json'
+  },
+  body: JSON.stringify(postData)
+}).then(r => r.json()).then(r => {
             // document.getElementById("demo").innerHTML = r.token;
-           document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics.eu/?"+  "token="+r.token+ WidgetID;
-          document.getElementById("ew_link").href = "https://aeinor138.github.io/test/ew_prod.html?TOKEN=" +r.token+ "&WIDGET_ID="+ document.getElementById('WidgetID_input').value;
+     //      document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics.eu/?"+  "token="+r.token+ WidgetID;
+        document.getElementById("pmplink").href = "https://app-preference.preference-management.usercentrics.eu/?"+  "token="+r.token;
+           document.getElementById("ew_link").href = "https://aeinor138.github.io/test/ew_staging.html?TOKEN=" +r.token+ "&WIDGET_ID="+ document.getElementById('WidgetID_input').value;
      if (userPublicName)   document.getElementById("custom_header").innerHTML = userPublicName;
     document.getElementById("token_now").innerHTML = r.token;
             
         });
+
     }
     callApi();
 </script>

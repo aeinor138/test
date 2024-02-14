@@ -183,7 +183,7 @@
     </style>
     
     <title>Embedded widget - STAGING</title>
-        <link href="https://embeddings.preference-management.usercentrics-staging.eu/styles.css" rel="stylesheet">
+        
   </head>
   <body> 
 <!-- <h3>STAGING</h3><p>
@@ -192,11 +192,12 @@ TOKEN, WIDGET_ID and LANG parameters should be passed via URL: http://domain.com
 <p>-->
     <div class="container">
 
-
+<link href="https://embeddings.preference-management.usercentrics-staging.eu/styles.css" rel="stylesheet">
 <div class="embedded-preference-widget" id="preferenceWidget"></div>
-
+<script src="https://embeddings.preference-management.usercentrics-staging.eu/bundle.js"></script>   
+      
 <script>
-    // Функция для получения параметров из URL
+ 
     function getUrlParameter(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -204,21 +205,21 @@ TOKEN, WIDGET_ID and LANG parameters should be passed via URL: http://domain.com
         return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    // Получаем параметры из URL
+  
     var token = getUrlParameter('TOKEN');
     var lang = getUrlParameter('LANG');
     var widgetId = getUrlParameter('WIDGET_ID');
 
-    // Получаем элемент, в который будем вставлять параметры
+   
     var widgetElement = document.getElementById('preferenceWidget');
 
-    // Проверяем, что обязательные параметры присутствуют
+ 
     if (token && widgetId && widgetElement) {
-        // Устанавливаем атрибуты элементу в соответствии с параметрами
+       
         widgetElement.setAttribute('data-token', token);
         widgetElement.setAttribute('data-widgetid', widgetId);
 
-        // Если параметр LANG передан, устанавливаем его
+ 
         if (lang) {
             widgetElement.setAttribute('data-language', lang);
         }
@@ -227,7 +228,7 @@ TOKEN, WIDGET_ID and LANG parameters should be passed via URL: http://domain.com
     }
 </script>
 
-<script src="https://embeddings.preference-management.usercentrics-staging.eu/bundle.js"></script>    
+ 
 
 
     </div>

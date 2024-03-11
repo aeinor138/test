@@ -17,33 +17,17 @@ img {
   left: 75%;
   transform: translateX(-50%);
 }
-
-.expandable {
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.details {
-  max-height: 0;
-}
-
-.expanded .details {
-  max-height: 400px; /* Change this value to adjust height of expanded text */
-}
-
+ 
 
     </style>
 </head>
     
 <body  >
  
-  		 <img src=https://aeinor138.github.io/test/account_page.png usemap="#image-map">
-         
+
    		<div class="custom_header_div_inn">UserID: <b id="custom_header"></b>   </div> 
        
-   <map name="image-map">
-    <area target="_new"  id=pmplink  alt="Preference management" title="Preference management" href="" coords="817,128,931,156" shape="rect" border=1>
-</map>
+  
 
       <div class="expandable">
  
@@ -56,7 +40,7 @@ img {
     
    <h2>Variables</h2>
    JWT token: <div id=token_now></div><p>
-              Preference Center Config ID:   <input id=pacId_input value="" size=100> <p>
+              Preference Center Config ID:   <input id=pacId_input value="" size=100>  <a target="_new" id=pmplink>Click here to open Preference Center page </a> <p> <p>
           Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
      UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  

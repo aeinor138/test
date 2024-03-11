@@ -17,20 +17,7 @@ img {
   left: 75%;
   transform: translateX(-50%);
 }
-
-.expandable {
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.details {
-  max-height: 0;
-}
-
-.expanded .details {
-  max-height: 400px; /* Change this value to adjust height of expanded text */
-}
-
+ 
 
     </style>
 </head>
@@ -68,14 +55,7 @@ img {
 </div>
  
 </body>
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $('.expandable').click(function() {
-  if (!$(this).hasClass('expanded')) {
-    $(this).addClass('expanded');
-  }
-});
-    </script>
+ 
 <script>
     //const UserID = urlParams.get('UserID')
    // var UserID = location.href.split("UserID")[1]

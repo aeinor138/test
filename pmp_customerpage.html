@@ -39,7 +39,7 @@ img {
  
     
    <h2>Variables</h2>
-   JWT token: <div id=token_now></div><p>
+   JWT token: <div id=token_now style="cursor: pointer;" onclick="copyToClipboard('Text to be copied')"></div><p>
               Preference Center Config ID:   <input id=pacId_input value="" size=100>  <a target="_new" id=pmplink>Click here to open Preference Center page </a> <p> <p>
           Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
@@ -57,6 +57,22 @@ img {
 </body>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      function copyToClipboard(text) {
+  // Create a temporary textarea element
+  var textarea = document.createElement("textarea");
+  // Set the text content to be copied
+  textarea.value = text;
+  // Append the textarea to the document
+  document.body.appendChild(textarea);
+  // Select the text within the textarea
+  textarea.select();
+  // Copy the selected text to the clipboard
+  document.execCommand("copy");
+  // Remove the temporary textarea
+  document.body.removeChild(textarea);
+  // Inform the user that the text has been copied
+  alert("Text copied to clipboard: " + text);
+}
       $('.expandable').click(function() {
   if (!$(this).hasClass('expanded')) {
     $(this).addClass('expanded');

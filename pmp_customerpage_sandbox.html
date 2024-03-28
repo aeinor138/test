@@ -38,7 +38,7 @@ img {
  
     
    <h2>Variables</h2>
-   JWT token: <div id=token_now></div><p>
+   JWT token: <div id=token_now style="cursor: pointer;" onclick="copyTextToClipboard(this)"></div><p>
               Preference Center Config ID:   <input id=pacId_input value="" size=100>   <a target="_new" id=pmplink>Click here to open Preference Center page </a> <p><p>
           Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
@@ -54,8 +54,13 @@ img {
 </div>
  
 </body>
+    <script>
+function copyTextToClipboard(element) {
+  var textToCopy = element.textContent; // Get the text content of the clicked element
+  navigator.clipboard.writeText(textToCopy); // Copy the text to clipboard
+  alert("Text copied to clipboard: " + textToCopy); // Optional: Show an alert confirming the copy
+}
  
-<script>
     //const UserID = urlParams.get('UserID')
    // var UserID = location.href.split("UserID")[1]
  

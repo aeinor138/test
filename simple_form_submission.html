@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://dc.preference-management.usercentrics-sandbox.eu/latest/data-collector.js" ></script>
+    <script src="https://dc.preference-management.usercentrics-staging.eu/latest/data-collector.js" ></script>
     <script type="text/javascript">
     var _iub = _iub || {};
     _iub.cons_instructions = _iub.cons_instructions || [];
@@ -63,7 +63,7 @@
 </head>
 <body>
     <h1>Simple Form</h1>
-    <form id="simpleForm" onsubmit="return validateForm()" action=http://wer.com>
+    <form id="simpleForm" onsubmit="return validateForm()" >
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         
@@ -114,11 +114,11 @@
     observeDomChanges: false,
   },
   // The widgetId that will receive this preference submission
-  widgetId: '5608a70a-982f-4726-9979-a99c4af68cdb',
+  widgetId: '1d449798-bf7c-4e03-ad12-917b45e86eb6',
   // The pacId under which the widgetId was created
-  pacId: '2340e662-480b-4219-8b01-6fe79927d34a',
+  pacId: 'cea67029-4fd1-4d6d-911c-f9d1dfc47cd3',
   // Public Api Key created on admin UI. It needs to be a public key, private ones don't work
-  publicApiKey: 'ec5c060622a4a19b0b8bcc208f04972fb9cf6a9f3735c5720cc0650082da3301',
+  publicApiKey: '1204b7b900fecc074c849bb50f340b16f2d60edbc8a8de4ed6d178b286aa18e9',
   // For the userId we have two possibilities, provide a string in case the user is already known, or the configuration
   // to find the userId in a input. For the sake of this example, we will provide a configuration.
   // userId: 'user@something.com'
@@ -136,7 +136,7 @@
       selector: 'input#terms',
       // In order to know what the selected input represents as a Preference, we need to specify whats the optionUuid
       // it represents
-      optionUuid: '25ca4308-c5df-4701-af9c-933c21286839',
+      optionUuid: '4fa653bb-f2fd-4503-bcb0-4c4aac653067',
 
       // We've added an extra property if user wants to implement some extra validation before sending the data
       // Check if email is valid, etc

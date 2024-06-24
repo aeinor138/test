@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://dc.preference-management.usercentrics-sandbox.eu/latest/data-collector.js" ></script>
+    <script type="text/javascript">
+    var _iub = _iub || {};
+    _iub.cons_instructions = _iub.cons_instructions || [];
+    _iub.cons_instructions.push(["init", {api_key: "YOUR_PUBLIC_API_KEY"}]);
+    
+    _iub.cons_instructions.push(["init", {
+    api_key: "YOUR_PUBLIC_API_KEY",
+    logger: "console",
+    log_level: "warn",
+    sendFromLocalStorageAtLoad: false,
+    retrySaveCount: 5,
+    retrySaveDelayMs: 3000
+});
+</script>
+<script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Form</h1>
+    <form id="simpleForm" onsubmit="return validateForm()" action=http://wer.com>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        
+        <label>
+            <input type="checkbox" id="terms" name="terms" required>
+            I agree to the <a href="#">terms and conditions</a>
+        </label>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var terms = document.getElementById('terms');
+            if (!terms.checked) {
+                alert('You must agree to the terms and conditions.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+    <Script>
+    window.setupForm({
+  event: {
+    // The element selector that you want to listen for an event, can be a form, button, etc
+    // Use css selectors like:
+    // - .theElementClass
+    // - #theElementId
+    // - div.anything > form
+    elementSelector: '#simpleForm',
+    // The event that you want to be listening to happen
+    // for Forms, we listen to *submit*
+    // for Buttons, we listen to *click*
+    // Any HTML event can be listen
+    eventType: 'submit',
+
+    // By default this flag will be false because we don't want to enable by default
+    // since it may be a bit heavier for memory but if your form elements may change visibility
+    // just by user interaction and you want to make sure we always find the elements, this feature
+    // can be enabled. We think that most of websites will not require this feature enable.
+    observeDomChanges: false,
+  },
+  // The widgetId that will receive this preference submission
+  widgetId: '5608a70a-982f-4726-9979-a99c4af68cdb',
+  // The pacId under which the widgetId was created
+  pacId: '2340e662-480b-4219-8b01-6fe79927d34a',
+  // Public Api Key created on admin UI. It needs to be a public key, private ones don't work
+  publicApiKey: 'ec5c060622a4a19b0b8bcc208f04972fb9cf6a9f3735c5720cc0650082da3301',
+  // For the userId we have two possibilities, provide a string in case the user is already known, or the configuration
+  // to find the userId in a input. For the sake of this example, we will provide a configuration.
+  // userId: 'user@something.com'
+  userId: {
+    // Use css selectors like:
+    // - .theElementClass
+    // - #theElementId
+    // - div.anything > input
+    selector: '#email',
+  },
+  // List of the elements that you want to capture the value
+  inputs: [
+    {
+      // Same logic as before, use a querySelector string to identify the element that we want a value
+      selector: 'input#terms',
+      // In order to know what the selected input represents as a Preference, we need to specify whats the optionUuid
+      // it represents
+      optionUuid: '25ca4308-c5df-4701-af9c-933c21286839',
+
+      // We've added an extra property if user wants to implement some extra validation before sending the data
+      // Check if email is valid, etc
+      // This is non-mandatory property
+      // validate: Function
+    },
+
+      // We've added an extra property if the client wants to implement some extra validation before sending the data
+      // Check if email is valid, etc
+      // This is non-mandatory property
+      // validate: Function
+     
+  ],
+});
+    </script>
+    
+    <h1>Iubenda form </h1>
+    <form id="contact-form">
+  <label>Full Name</label>
+  <input type="text" name="your-name" />
+   
+  <label>Email</label>
+  <input type="email" name="your-email" />
+  
+  <label>Message</label>
+  <textarea name="your-message"></textarea>
+ 
+  <input type="checkbox" name="generic" /> I've read the <a 
+href="#">Privacy Policy</a> and 
+accept the <a href="#">Terms and Conditions</a>
+  <input type="checkbox" name="newsletter" /> Send me information about products, services, 
+deals or recommendations by email (optional)
+    
+  <button id="contact-submit">Send</button>
+</form>
+
+<script type="text/javascript">
+    _iub.cons_instructions.push(["load", {
+        submitElement: document.getElementById("contact-submit"),
+        form: {
+            selector: document.getElementById("contact-form"),
+            map: {
+                subject: {
+                    full_name: "your-name",
+                    email: "your-email"
+                },
+                preferences: {
+                    generic: "generic",
+                    newsletter: "newsletter"
+                }
+            }
+        },
+        consent: {
+            legal_notices: [{
+                    identifier: "privacy_policy",
+                },
+                {
+                    identifier: 'cookie_policy',
+                },
+                {
+                    identifier: "terms",
+                }
+            ],
+        }
+    }])
+</script>
+</body>
+</html>

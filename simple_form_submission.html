@@ -3,23 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://dc.preference-management.usercentrics-staging.eu/latest/data-collector.js" ></script>
-    <script type="text/javascript">
-    var _iub = _iub || {};
-    _iub.cons_instructions = _iub.cons_instructions || [];
-    _iub.cons_instructions.push(["init", {api_key: "YOUR_PUBLIC_API_KEY"}]);
-    
-    _iub.cons_instructions.push(["init", {
-    api_key: "YOUR_PUBLIC_API_KEY",
-    logger: "console",
-    log_level: "warn",
-    sendFromLocalStorageAtLoad: false,
-    retrySaveCount: 5,
-    retrySaveDelayMs: 3000
-});
+    <script src="https://dc.preference-management.usercentrics.eu/latest/data-collector.js" ></script>
+
 </script>
 <script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
-    <title>Simple Form</title>
+    <title>Simple Form = PROD </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,7 +51,7 @@
 </head>
 <body>
     <h1>Simple Form</h1>
-    <form id="simpleForm" onsubmit="return validateForm()" >
+    <form id="simpleForm" onsubmit="return validateForm()" action=http://www.co.com >
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         

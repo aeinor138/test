@@ -140,56 +140,6 @@
   ],
 });
     </script>
-    
-    <h1>Iubenda form </h1>
-    <form id="contact-form">
-  <label>Full Name</label>
-  <input type="text" name="your-name" />
    
-  <label>Email</label>
-  <input type="email" name="your-email" />
-  
-  <label>Message</label>
-  <textarea name="your-message"></textarea>
- 
-  <input type="checkbox" name="generic" /> I've read the <a 
-href="#">Privacy Policy</a> and 
-accept the <a href="#">Terms and Conditions</a>
-  <input type="checkbox" name="newsletter" /> Send me information about products, services, 
-deals or recommendations by email (optional)
-    
-  <button id="contact-submit">Send</button>
-</form>
-
-<script type="text/javascript">
-    _iub.cons_instructions.push(["load", {
-        submitElement: document.getElementById("contact-submit"),
-        form: {
-            selector: document.getElementById("contact-form"),
-            map: {
-                subject: {
-                    full_name: "your-name",
-                    email: "your-email"
-                },
-                preferences: {
-                    generic: "generic",
-                    newsletter: "newsletter"
-                }
-            }
-        },
-        consent: {
-            legal_notices: [{
-                    identifier: "privacy_policy",
-                },
-                {
-                    identifier: 'cookie_policy',
-                },
-                {
-                    identifier: "terms",
-                }
-            ],
-        }
-    }])
-</script>
 </body>
 </html>

@@ -42,7 +42,8 @@ img {
               Preference Center Config ID:   <input id=pacId_input value="" size=100>   <a target="_new" id=pmplink>Click here to open Preference Center page </a> <p><p>
           Embedded widget : (optional) <input id=WidgetID_input value="" size=100>   <a target="_new" id=ew_link>Click here to open Widget-only page </a> <p>
         UserID (End-user you want to generate Preference App for): <input id=UserID_input value="alexey@domain.com" size=100>  <p>
-     UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>  
+     UserAlias (optional, if empty - UserID will be displayed): <input id=userPublicName_input size=100>   <p>
+     EMail adress (optional, to support non-Email UserIDs): <input id=userEmail_input size=100>  
        <h2>Pre-defined parameters</h2>
         Customer (email, you are registerd in PMP Admin Interface): <input id=CustomerID_input value="alexey.einor@usercentrics.com" size=100> <p>
         Private API key (you can find it in your PMP AI):  <input id=PrivateKey_input value="8a399d7d434679d4d76e4e5bd6464d440032ad8c9040714300a7ab0c00a54f81" size=100> <p>
@@ -68,6 +69,7 @@ function copyTextToClipboard(element) {
                 const params = new URLSearchParams(window.location.search)
                  var UserID = params. get('UserID')
                  var userPublicName =   params. get('userPublicName');
+        var userEmail =   params. get('userEmail');
                  var WidgetID = params. get('WidgetID')
                   var pacId = params. get('pacId')
                
@@ -76,6 +78,7 @@ function copyTextToClipboard(element) {
                
                if (UserID)   document.getElementById('UserID_input').value= UserID;
                if (userPublicName)   document.getElementById('userPublicName_input').value= UserID;
+      if (userEmail)   document.getElementById('userEmail_input').value= UserEmail;
                if (WidgetID)   document.getElementById('WidgetID_input').value= WidgetID;
                  if (pacId)   document.getElementById('pacId_input').value= pacId;
                if (CustomerID)  document.getElementById('CustomerID_input').value= CustomerID;
@@ -94,6 +97,7 @@ function copyTextToClipboard(element) {
              
               
               var userPublicName = document.getElementById('userPublicName_input').value; 
+         var userEmail = document.getElementById('userEmail_input').value; 
         
               var PrivateKey = document.getElementById('PrivateKey_input').value;
              var WidgetID = '';
@@ -132,7 +136,8 @@ function copyTextToClipboard(element) {
       const postData = {
   pacUuid: pacId,
   userId: UserID,
-  userPublicName: userPublicName
+  userPublicName: userPublicName,
+        userEmail: userEmail
 };
 
 const apiUrl = 'https://preference-api.preference-management.usercentrics-sandbox.eu/public/authenticate';

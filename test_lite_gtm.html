@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFF4Q2CM"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<form id="consent-form">
+<form id="consent-form"  onsubmit="pushDataToLayer(event)">
   <label for="user-email">Enter your email:</label>
   <input type="email" id="user-email" name="email" required>
 
@@ -30,6 +30,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <button type="submit">Submit</button>
 </form>
+<script>
+  function pushDataToLayer(event) {
+    event.preventDefault(); // Prevents the form from submitting immediately
+    
+    var userEmail = document.querySelector('#user-email').value;
+    var consentGiven = document.querySelector('#user-consent').checked;
 
+    // Push values to the dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'formSubmit',
+      userEmailId: userEmail,
+      userConsentId: consentGiven
+    });
+
+    // Optionally submit the form after pushing to dataLayer
+    document.getElementById('consent-form').submit();
+  }
+</script>
 </body>
 </html>

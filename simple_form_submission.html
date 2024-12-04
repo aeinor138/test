@@ -1,145 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://dc.preference-management.usercentrics.eu/latest/data-collector.js" ></script>
+ <script src="https://dc.preference-management.usercentrics.eu/latest/data-collector.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Submission Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    .header, .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
 
-</script>
-<script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
-    <title>Simple Form = PROD </title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-        }
-        form {
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="email"], input[type="checkbox"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        input[type="checkbox"] {
-            width: auto;
-            margin-right: 10px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .form-container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin: 20px auto;
+    }
+    .form-container h2 {
+      text-align: center;
+      color: #333333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555555;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+    }
+    .form-group input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    .form-group .consent-text {
+      display: inline;
+      color: #555555;
+    }
+    .form-group a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .form-group a:hover {
+      text-decoration: underline;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+       .footer-links {
+      margin-top: 10px;
+    }
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+ 
 </head>
 <body>
-    <h1>Simple Form</h1>
-    <form id="simpleForm" onsubmit="return validateForm()" action=http://www.co.com >
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
+  <div class="header">
+    <img src="https://1000logos.net/wp-content/uploads/2016/10/ACME-Logo-1984.png"  height="80" alt="Header Image">
+    <h1>Welcome to ACME Inc Website</h1>
+  </div>
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <form id="data_form" method="post" >
+      <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-        
-        <label>
-            <input type="checkbox" id="terms" name="terms" required>
-            I agree to the <a href="#">terms and conditions</a>
+        <input type="text" id="name" name="name">
+      </div>
+       <div class="form-group">
+        <label for="user_email">Email:</label>
+        <input type="email" id="user_email" name="user_email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="privacy_policy" name="privacy_policy" required>
+        <label for="privacy_policy" class="consent-text">
+          I agree to the <a href="/privacy-policy" target="_blank">privacy policy</a>.
         </label>
-        
-        <button type="submit">Submit</button>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="consent_field" name="consent">
+        <label for="consent_field" class="consent-text">
+          I consent to usage my PII for re-targeting marketing campaigns.
+        </label>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
     </form>
 
-    <script>
-        function validateForm() {
-            var terms = document.getElementById('terms');
-            if (!terms.checked) {
-                alert('You must agree to the terms and conditions.');
-                return false;
-            }
-            return true;
-        }
-    </script>
-    
-    <Script>
-    window.setupForm({
-  event: {
-    // The element selector that you want to listen for an event, can be a form, button, etc
-    // Use css selectors like:
-    // - .theElementClass
-    // - #theElementId
-    // - div.anything > form
-    elementSelector: '#simpleForm',
-    // The event that you want to be listening to happen
-    // for Forms, we listen to *submit*
-    // for Buttons, we listen to *click*
-    // Any HTML event can be listen
-    eventType: 'submit',
-
-    // By default this flag will be false because we don't want to enable by default
-    // since it may be a bit heavier for memory but if your form elements may change visibility
-    // just by user interaction and you want to make sure we always find the elements, this feature
-    // can be enabled. We think that most of websites will not require this feature enable.
-    observeDomChanges: false,
-  },
-  // The widgetId that will receive this preference submission
-  widgetId: '1d449798-bf7c-4e03-ad12-917b45e86eb6',
-  // The pacId under which the widgetId was created
-  pacId: 'cea67029-4fd1-4d6d-911c-f9d1dfc47cd3',
-  // Public Api Key created on admin UI. It needs to be a public key, private ones don't work
-  publicApiKey: '1204b7b900fecc074c849bb50f340b16f2d60edbc8a8de4ed6d178b286aa18e9',
-  // For the userId we have two possibilities, provide a string in case the user is already known, or the configuration
-  // to find the userId in a input. For the sake of this example, we will provide a configuration.
-  // userId: 'user@something.com'
-  userId: {
-    // Use css selectors like:
-    // - .theElementClass
-    // - #theElementId
-    // - div.anything > input
-    selector: '#email',
-  },
-  // List of the elements that you want to capture the value
-  inputs: [
-    {
-      // Same logic as before, use a querySelector string to identify the element that we want a value
-      selector: 'input#terms',
-      // In order to know what the selected input represents as a Preference, we need to specify whats the optionUuid
-      // it represents
-      optionUuid: '4fa653bb-f2fd-4503-bcb0-4c4aac653067',
-
-      // We've added an extra property if user wants to implement some extra validation before sending the data
-      // Check if email is valid, etc
-      // This is non-mandatory property
-      // validate: Function
+ 
+ <script>
+  // Attach the preference management event listener
+  window.setupForm({
+    event: {
+      // The element selector that you want to listen for an event, can be a form, button, etc
+      // Use CSS selectors like:
+      // - .theElementClass
+      // - #theElementId
+      // - div.anything > form
+      elementSelector: '#data_form', // The form to capture preferences
+      eventType: "submit", // The event type, usually form submission
+      observeDomChanges: false,
     },
+    widgetId: "206e0350-fd23-4c64-ba3f-65d6daf1a5ca", // Unique widget ID
+    pacId: "b53e5321-49c1-4753-bbe3-0e15d2e86a29", // Configuration ID
+    publicApiKey: "127d24ce33f37f7fe6c1bf414fcf575149fad04ced7db38c3f3b3072870d4336", // Public API key to authenticate
+    userId: {
+      selector: '#user_email' // Capture user ID (email)
+    },
+    inputs: [
+      {
+        selector: '#consent_field', // Element capturing user preferences
+        optionUuid: "465640bc-b094-4feb-9b82-24ab39f3d97d", // Option ID for preferences,
+        validate: function () {
+          // (optional) Return validation result to prevent submission
+          return true;
+        }
+      }
+    ]
+  });
+</script>
 
-      // We've added an extra property if the client wants to implement some extra validation before sending the data
-      // Check if email is valid, etc
-      // This is non-mandatory property
-      // validate: Function
-     
-  ],
-});
-    </script>
-   
+  </div>
+  <div class="footer">
+    <img src="https://1000logos.net/wp-content/uploads/2016/10/ACME-Logo-1984.png"  height="30" alt="Footer Image">
+    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="/privacy-policy" target="_blank">Privacy Policy</a> |
+      <a href="https://app-preference.preference-management.usercentrics.eu/login/276dade8-bd96-460a-b7eb-7fe7ab10fec6?lng=[LANG_CODE]" target="_blank">Preference Management</a>
+    </div>
+  </div>
 </body>
 </html>
